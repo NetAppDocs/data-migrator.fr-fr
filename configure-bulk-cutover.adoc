@@ -1,0 +1,64 @@
+---
+sidebar: sidebar 
+permalink: configure-bulk-cutover.html 
+keywords: bulk cutover, final sync, cutover job, chain of custody, migration approval 
+summary: Utilisez la fonction de basculement en masse dans NetApp Data Migrator pour effectuer la synchronisation finale des données entre les systèmes source et de destination. 
+---
+= Configurer le basculement en bloc dans NetApp Data Migrator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Utilisez la fonction de basculement en masse dans NetApp Data Migrator pour effectuer la synchronisation finale entre vos systèmes source et de destination. Une fois les migrations de base terminées et les synchronisations incrémentales en cours, vous pouvez fusionner plusieurs chemins en une seule tâche de basculement.
+
+
+
+== Démarrer une tâche de basculement
+
+Suivez ces étapes pour démarrer une opération de basculement.
+
+.Étapes
+. Connectez-vous à NetApp Data Migrator.
+. Sélectionnez *Serveurs de stockage* > *Serveurs de fichiers*.
+. Sélectionnez le nom du serveur de fichiers pour lequel vous souhaitez créer une tâche de basculement.
+. Sélectionnez *Basculement en masse*.
+. Sur la page *Sélectionner le chemin*, cochez la case en regard de *Chemin source*.
+. Cochez la case en regard du chemin source (confirmant la tâche de basculement).
+. Sélectionnez *Procéder.*
+. Cochez la case en regard du nom d'une tâche pour confirmer que vous lancez une tâche de *Bulk Cutover*.
++
+
+NOTE: Vous pouvez sélectionner une tâche lorsqu'une tâche de migration en masse est exécutée en parallèle.
+
+. Sélectionnez *Soumettre* pour démarrer votre tâche de basculement en masse.
++
+Le message de confirmation *La tâche de basculement a été créée* s'affiche.
+
+. Vous pouvez sélectionner le lien *View Job Listing* à côté de ce message pour ouvrir la page Job Config List où votre nouvel emploi est répertorié.
+
+
+
+
+== Approuver une opération de basculement en masse
+
+Suivez ces étapes pour approuver une opération de basculement.
+
+.Étapes
+. Sur la page *Tâches*, sélectionnez l'onglet *Job Run List*.
+. Sélectionnez le menu d'actions à côté de votre tâche de basculement.
+. Sélectionnez *Révision*.
++
+La boîte de dialogue *Confirmation de basculement* apparaît.
+
+. Sélectionnez le lien *Télécharger le rapport CoC*.
++
+Consultez le rapport pour vérifier si le basculement a réussi et si toutes les données ont bien migré de la source vers la destination.
+
+. Cochez la case en regard de *J'ai examiné et vérifié le document COC et toutes les autres informations essentielles*.
+. Si les informations contenues dans le rapport COC vous conviennent, sélectionnez *Confirmer* pour approuver le *Bulk Cutover*.
++
+Le statut passe à *Terminé*.
+
+

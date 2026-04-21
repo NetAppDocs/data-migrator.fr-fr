@@ -1,0 +1,155 @@
+---
+sidebar: sidebar 
+permalink: support-matrix.html 
+keywords: support matrix, nfs, smb, file servers, protocol versions 
+summary: Découvrez la prise en charge de Data Migrator de NetApp pour les fonctionnalités, les serveurs de fichiers et les protocoles. 
+---
+= NetApp Prise en charge par Data Migrator des fonctionnalités, des serveurs de fichiers et des protocoles
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Data Migrator prend en charge certaines fonctionnalités, certains serveurs de fichiers et certains protocoles.
+
+
+
+== Fonctionnalités prises en charge et non prises en charge
+
+NetApp Data Migrator prend en charge diverses fonctionnalités pour les migrations NFS et SMB. Certaines fonctionnalités ne sont pas prises en charge.
+
+
+
+=== Fonctionnalités prises en charge
+
+[cols="1,2a"]
+|===
+| Description | Fonctionnalité prise en charge 
+
+
+| Gestion des autorisations et des audits  a| 
+* Rapport de chaîne de traçabilité
+* Liste de contrôle d'accès discrétionnaire (DACL)
+* Préserver la liste de contrôle d'accès (ACL)
+* Réassociation de l'identifiant utilisateur (UID) et de l'identifiant de sécurité (SID)
+
+
+
+
+| Objets et liens du système de fichiers  a| 
+* Gestion des liens physiques
++
+NetApp Data Migrator migre les objets et les liens sous forme de fichiers séparés.
+
+* Liens symboliques
++
+*Remarque* : pris en charge pour les migrations NFS
+
+
+
+
+
+| préservation des métadonnées des fichiers  a| 
+* Préserver le temps d'accès
+* Préserver le temps de création
+* Préserver l'heure modifiée
+* Préserver les autorisations
+
+
+
+
+| Comportement de migration et cohérence des données  a| 
+* Propagation de la suppression
+* Migration incrémentale
+* Prise en charge des fichiers ouverts
+* Prise en charge du basculement
+
+
+
+
+| Contrôle et exécution des migrations  a| 
+* Exclusions de modèles de fichiers
+* Planification de la migration
+
+
+|===
+
+
+=== Fonctionnalités non prises en charge
+
+[cols="1,2a"]
+|===
+| Description | Fonctionnalité non prise en charge 
+
+
+| Gestion des autorisations et des audits  a| 
+Liste de contrôle d'accès au système (SACL)
+
+*Remarque* : Non pris en charge pour les migrations SMB
+
+
+
+| Objets et liens du système de fichiers  a| 
+* Suivre les jonctions NTFS
+* Liens symboliques
++
+*Remarque* : Non pris en charge pour les migrations SMB
+
+* Flux de données alternatifs
++
+NetApp Data Migrator peut découvrir, mais pas migrer, les flux de données alternatifs.
+
+
+
+
+
+| préservation des métadonnées des fichiers  a| 
+attributs de fichier sélectifs
+
+
+
+| Comportement de migration et cohérence des données  a| 
+Migration des instantanés
+
+|===
+
+
+== Serveurs de fichiers pris en charge
+
+NetApp Data Migrator prend en charge certains serveurs de fichiers comme source et destination pour la migration des données.
+
+[cols="1,2a"]
+|===
+| Description | serveur de fichiers pris en charge 
+
+
+| Source  a| 
+Tout serveur NAS, par exemple Dell Isilon, ONTAP, Vanilla Linux, Windows, Cloud Volumes ONTAP
+
+
+
+| Destination  a| 
+Tous les niveaux de service d'Azure NetApp Files (ANF), Google Cloud NetApp Volumes (GCNV), Amazon FSx for NetApp ONTAP (FSxN), Cloud Volumes ONTAP
+
+|===
+
+
+== Protocoles de migration NFS et SMB pris en charge
+
+NetApp Data Migrator prend en charge certaines versions des protocoles NFS et SMB pour la migration des données.
+
+[cols="1,2a"]
+|===
+| Protocole | Versions prises en charge 
+
+
+| NFS  a| 
+4.1, 3.0
+
+
+
+| SMB  a| 
+3.1, 3.0, 2.0
+
+|===

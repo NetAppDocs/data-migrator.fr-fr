@@ -1,0 +1,252 @@
+---
+sidebar: sidebar 
+permalink: known-issues.html 
+keywords: known issues, workarounds 
+summary: Consultez la liste des problèmes connus et des solutions de contournement pour NetApp Data Migrator. 
+---
+= Problèmes connus pour NetApp Data Migrator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Les problèmes connus recensent les dysfonctionnements susceptibles de vous empêcher d'utiliser correctement cette version du produit. Lisez attentivement ces problèmes connus.
+
+
+
+== Configuration
+
+
+
+=== Incompatibilité des autorisations d'accès lors de l'utilisation du mappage SID
+
+NetApp Data Migrator peut signaler une  `Missing ACE in target` erreur lors de l'utilisation du mappage SID. Cette erreur indique une incompatibilité des autorisations d'accès entre les systèmes source et cible, car le mappage SID n'a pas été effectué au niveau racine.
+
+.Solution de contournement
+Fournissez le mappage CSV pour la source et la cible SID comme indiqué dans les deux scénarios suivants :
+
+[role="tabbed-block"]
+====
+.Scénario 1
+--
+Indiquez le SID dans la feuille de mappage CSV pour les utilisateurs ou les groupes supprimés ou retirés de l'Active Directory source, comme illustré dans l'exemple suivant :
+
+[cols="1,1a"]
+|===
+| sid_source | cible_sid 
+
+
+| S-1-5-21-2444020195-1862089444-1769087368-1000  a| 
+S-1-5-21-3481156262-2863848796-4292454742-512
+
+|===
+--
+.Scénario 2
+--
+Pour les utilisateurs ou groupes actifs dans Active Directory, indiquez les noms d'utilisateur ou les noms de groupe dans la feuille de correspondance CSV exclusivement en minuscules. Incluez le préfixe de domaine (domain\nom_utilisateur), comme dans l'exemple suivant :
+
+[cols="1,1a"]
+|===
+| sid_source | cible_sid 
+
+
+| rootdomain\user1  a| 
+rootdomain\user2
+
+|===
+--
+====
+
+
+=== Limitation de la migration en masse pour les répertoires de même niveau
+
+Lors de l'utilisation de la fonction de migration en masse, il est impossible de créer plusieurs tâches de migration simultanément pour des répertoires situés au même niveau dans l'arborescence source et de destination. Par exemple, des dossiers frères dans la même opération de partage pour une source et une destination. Toute tentative d'inclure de tels répertoires dans une configuration de migration en masse unique entraîne l'échec de la création de la tâche.
+
+.Solution de contournement
+Créez des tâches de migration une à une pour les répertoires qui se trouvent au même niveau, au lieu de les ajouter ensemble.
+
+
+
+=== Migration au niveau du répertoire avec estampillage des autorisations héritées
+
+Lors des migrations au niveau des répertoires, les permissions héritées du répertoire racine sélectionné ne sont pas appliquées à la destination. Étant donné que NetApp Data Migrator n'applique pas les permissions héritées du répertoire racine, les sous-répertoires et fichiers qui dépendent de l'héritage ne reçoivent pas non plus les permissions héritées.
+
+Ce problème affecte uniquement la propagation des permissions héritées du répertoire racine. NetApp Data Migrator applique correctement les permissions explicites définies directement sur les fichiers et répertoires (permissions non héritées) lors de la migration.
+
+.Solution de contournement
+Une fois la migration terminée, réappliquez ou réinitialisez manuellement les permissions héritées sur le répertoire racine du volume de destination. Cela permet aux permissions héritées correctes de se propager à tous les sous-répertoires et fichiers
+
+
+
+=== Validation du chargement manuel du mappage UID et GID dans NFS
+
+Lors des migrations NFS, si le fichier CSV de correspondance UID et GID contient des identifiants utilisateur ou groupe numériques qui n'existent pas sur le système de destination, NetApp Data Migrator applique (estampe) ces valeurs telles quelles. NetApp Data Migrator ne vérifie pas si l'UID ou le GID spécifié existe sur la destination et n'affiche aucune erreur ni aucun avertissement dans l'interface utilisateur. Cela peut entraîner une migration de fichiers avec une propriété incorrecte. Vous devez fournir la correspondance UID et GID correcte.
+
+.Solution de contournement
+Avant de lancer la migration, assurez-vous que toutes les valeurs UID et GID spécifiées dans le fichier CSV de mappage correspondent à des utilisateurs et groupes valides et existants sur le système de destination. Vérifiez manuellement l'existence des utilisateurs et des groupes sur le système de destination afin d'éviter que NetApp Data Migrator n'attribue une propriété incorrecte lors de la migration.
+
+
+
+=== La vérification préalable de la migration affiche un faux avertissement d'espace insuffisant
+
+Lors des vérifications préalables à la migration, vous pourriez voir l'avertissement suivant, même si la destination dispose d'un espace suffisant :
+
+[listing]
+----
+Insufficient destination space for selected path. Do you still want to proceed with the migration?
+----
+Cela peut se produire si vous sautez l'étape de découverte et que NetApp Data Migrator utilise une commande générale qui lit la taille totale du périphérique de stockage par blocs au lieu de la taille réelle de l'ensemble de données.
+
+.Solution de contournement
+Exécutez la découverte avant une exécution de migration. Cela garantit que les informations d'utilisation du disque sont disponibles pour l'opération de pré-vérification. Si vous voyez toujours l'avertissement :
+
+. Confirmez que la découverte est terminée.
+. Vérifiez manuellement que le volume de destination dispose de suffisamment d'espace.
+. S’il y a suffisamment d’espace, vous pouvez procéder en toute sécurité à la migration des données.
+
+
+
+
+== Rapports
+
+
+
+=== Excel affiche des autorisations incorrectes dans le fichier de rapport COC
+
+Lors de l'ouverture du fichier CSV du rapport de chaîne de contrôle (CoC) dans Microsoft Excel, certaines autorisations de fichiers ou de dossiers peuvent apparaître sous la forme #NAME?, par exemple -rwxrwxrwx, au lieu des valeurs réelles.
+
+Cela se produit car Excel interprète par erreur certaines chaînes d'autorisation (commençant par - ou =) comme des formules, ce qui entraîne des erreurs d'affichage. Le fichier CSV lui-même est correct, il s'agit uniquement d'un problème d'affichage.
+
+.Solution de contournement
+Pour afficher les autorisations correctes des fichiers et des dossiers, ouvrez le fichier CSV à l'aide de l'une des applications suivantes :
+
+* Google Sheets
+* Apple Numbers
+* Visionneuse CSV en ligne
+* Éditeur de texte, par exemple Notepad++
+
+
+
+
+=== Aucun message d'erreur n'est affiché lorsque la tâche de découverte en masse échoue en raison de problèmes de réseau.
+
+Si le serveur hôte ou le serveur de destination tombe en panne pendant une tâche de découverte en masse, NetApp Data Migrator peut ne pas afficher de message d'erreur. Cela peut donner l'impression que la tâche se déroule toujours normalement.
+
+Les tâches de découverte s'actualisent toutes les 30 secondes. Si vous constatez que le nombre de fichiers, le nombre de répertoires ou la taille des données ne se mettent pas à jour, cela peut indiquer un problème de réseau.
+
+.Solution de contournement
+. Vérifiez la connectivité réseau :
++
+.. Ouvrez le terminal de la machine virtuelle de travail.
+.. Effectuez un ping sur l'adresse IP du serveur de destination.
++
+En l'absence de réponse, la destination est peut-être inaccessible.
+
+
+
+. Restaurez l'interface réseau :
++
+.. Utilisez SSH pour vous connecter au serveur de destination :
++
+[source, cli]
+----
+ssh <destination_IP>
+----
+.. Trouvez le nom de l'interface, par exemple, eth0 :
++
+[source, cli]
+----
+ipconfig
+----
+.. Remettre l'interface réseau en ligne :
++
+[source, cli]
+----
+ifup <interface_name>
+----
+
+
+. Si nécessaire, répétez les étapes 1 et 2 pour le serveur source.
+
+
+
+
+=== Impossible de changer d'utilisateur sur un poste de travail Windows
+
+Le passage à un autre compte utilisateur sur un poste de travail Windows peut échouer en raison de connexions réseau existantes. Cela peut empêcher l'accès au serveur de fichiers.
+
+.Solution de contournement
+. Supprimez la connexion précédente en ouvrant l'invite de commandes sur le poste de travail Windows et en exécutant les commandes suivantes :
++
+[source, cli]
+----
+net use
+----
++
+[source, cli]
+----
+net use <IP address> /delete
+----
+. Passez au nouveau compte utilisateur et accédez au serveur de fichiers.
+
+
+
+
+== Validation
+
+
+
+=== La taille des fichiers peut différer après la migration même si les comptes correspondent
+
+Une fois la migration des données terminée, le nombre total de fichiers est correct, mais la taille de certains fichiers peut différer de celle de la source d'origine. Cela peut se produire en cas d'interruption du réseau ou de problèmes avec le serveur pendant le transfert des fichiers.
+
+.Solution de contournement
+. Consultez le rapport COC de migration pour identifier les fichiers marqués comme erronés.
+. Relancez la migration jusqu'à ce que les erreurs soient résolues.
+
+
+
+
+== Flux de travail
+
+
+
+=== La tâche a été interrompue ou bloquée pendant plus de 20 minutes
+
+Il peut être nécessaire d'intervenir lorsque vous observez des problèmes de connectivité réseau, des problèmes de stabilité du volume source ou du volume de destination, ou les deux. La tâche peut être à l'état Pause ou En cours d'exécution sans progression visible. Cela peut se produire si les services source ou de destination sont indisponibles, ou si le service de traitement subit une interruption.
+
+.Solution de contournement
+. Vérifiez la source et la destination.
++
+S'ils sont hors ligne, redémarrez pour rétablir la connectivité.
+
+. Vérifiez le statut du travailleur.
++
+Si le worker est hors ligne, utilisez SSH pour vous connecter à la VM et exécutez la commande suivante :
+
++
+[source, cli]
+----
+systemctl restart datamigrator-worker.service
+----
+. Redémarrez la machine virtuelle :
++
+Si le problème persiste, redémarrez la machine virtuelle de travail.
+
+
+
+
+
+=== L'état d'exécution des tâches est déroutant en cas d'erreurs
+
+Certaines tâches de migration rencontrent des erreurs et affichent un statut « Terminé » ou « En erreur ». Cela peut prêter à confusion lors de l'interprétation du statut d'exécution de la tâche de migration.
+
+Définitions des statuts :
+
+* Terminé : L'exécution d'une tâche est terminée, mais peut contenir des erreurs.
+* Erreur : L’exécution d’une tâche a échoué en raison d’un problème critique.
+
+
+.Solution de contournement
+Vérifiez le résultat de l'exécution en consultant les détails de la tâche afin de détecter d'éventuelles erreurs, notamment si le statut est Completed. Ne vous fiez pas uniquement à ce statut tant que vous n'avez pas résolu ce problème.

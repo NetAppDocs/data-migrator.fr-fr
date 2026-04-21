@@ -1,0 +1,76 @@
+---
+sidebar: sidebar 
+permalink: access-control.html 
+keywords: role-based access control, rbac, user permissions, app admin, project admin 
+summary: 'NetApp Data Migrator utilise le contrôle d"accès basé sur les rôles (RBAC) pour gérer les autorisations des utilisateurs, permettant aux utilisateurs App Admin d"attribuer des rôles à d"autres utilisateurs.' 
+---
+= Gérer le contrôle d'accès pour NetApp Data Migrator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Data Migrator utilise le contrôle d'accès basé sur les rôles (RBAC) pour gérer les autorisations des utilisateurs. Le RBAC permet aux utilisateurs App Admin (administrateurs) d'attribuer l'un des trois rôles suivants à d'autres utilisateurs, garantissant ainsi un contrôle d'accès sécurisé et des opérations efficaces. Les utilisateurs App Admin accordent des autorisations aux autres utilisateurs en fonction de leurs responsabilités et de leurs besoins d'accès.
+
+* *Administrateur d'application* : Ce niveau d'accès permet aux utilisateurs de gérer les paramètres généraux du système, les rôles des utilisateurs et les autorisations d'accès.
+* *Administrateur de projet* : Ce niveau d'accès permet aux utilisateurs de gérer des projets de migration spécifiques, y compris la configuration et l'exécution des tâches.
+* *Visionneuse de projet* : Ce niveau d'accès permet aux utilisateurs de consulter en lecture seule la progression des migrations, les journaux et les rapports. Ce rôle est destiné aux utilisateurs qui doivent suivre et observer l’avancement des projets de migration des données sans avoir à effectuer d’actions susceptibles de modifier ou de perturber un projet.
+
+
+Le tableau suivant récapitule les actions et les autorisations des rôles utilisateurs.
+
+[cols="1,2,1,1,1a"]
+|===
+| Action | Description | Administrateur d'applications | Administrateur de projet | Visionneuse de projets 
+
+
+| Déploiement d'agent | L'utilisateur peut accéder à *Voir les instructions pour configurer le travailleur* | Oui | Oui  a| 
+Non
+
+
+
+| Créer un utilisateur | L'utilisateur peut créer de nouveaux comptes utilisateurs | Oui | Non  a| 
+Non
+
+
+
+| Liste des utilisateurs | L'utilisateur peut consulter une liste d'utilisateurs | Oui | Oui  a| 
+Oui
+
+
+
+| Gérer la configuration | L'utilisateur peut gérer les paramètres de configuration | Oui | Oui  a| 
+Non
+
+
+
+| Gérer le travail | L'utilisateur peut gérer les tâches de migration | Oui | Oui  a| 
+Non
+
+
+
+| Rapports | L'utilisateur peut accéder aux options de téléchargement des rapports | Oui | Oui  a| 
+Oui
+
+
+
+| Mettre à jour le projet | L'utilisateur peut modifier un projet | Oui | Oui  a| 
+Non
+
+
+
+| Voir un projet | L'utilisateur peut accéder à la page de liste des projets | Oui | Oui  a| 
+Oui
+
+
+
+| Créer un projet | L'utilisateur peut créer un projet | Oui | Non  a| 
+Non
+
+
+
+| Enregistrer SMTP | L'utilisateur peut ajouter ou modifier les détails SMTP | Oui | Non  a| 
+Non
+
+|===

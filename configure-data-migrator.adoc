@@ -1,0 +1,71 @@
+---
+sidebar: sidebar 
+permalink: configure-data-migrator.html 
+keywords: configure, log, in, project, create, app admin 
+summary: 'Connectez-vous en tant qu"administrateur d"application en utilisant les identifiants par défaut et mettez à jour votre nom d"utilisateur et votre mot de passe.' 
+---
+= Configurer NetApp Data Migrator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Après avoir installé NetApp Data Migrator, vous devez vous connecter en tant qu'administrateur d'application en utilisant le nom d'utilisateur et le mot de passe par défaut.
+
+
+
+== Se connecter à NetApp Data Migrator
+
+Connectez-vous à NetApp Data Migrator, puis modifiez vos identifiants de connexion et créez votre premier projet.
+
+.Étapes
+. Ouvrez un navigateur Web et accédez à NetApp Data Migrator :
++
+`\https://<private_IP_address>/`
+
+. Sur la page *Bienvenue*, saisissez le nom d'utilisateur par défaut dans *Nom d'utilisateur/Adresse e-mail*.
+. Saisissez le mot de passe par défaut dans *Mot de passe*.
+. Sélectionnez *Login*.
++
+La page *Réinitialiser le mot de passe* s'ouvre.
+
+. Saisissez un nouveau mot de passe qui respecte les exigences de sécurité suivantes :
++
+** Comprend au moins 8 caractères
+** Comprend au moins une lettre majuscule
+** Comprend au moins une lettre minuscule
+** Comprend au moins un nombre
+** Comprend au moins un caractère spécial
+
+
+. Sélectionnez *Réinitialiser le mot de passe*. La page *Vos informations* s'ouvre.
+. Saisissez votre *Prénom*, *Nom* et *Adresse e-mail*.
+. Sélectionnez *Continuer*. La page *Créer un nouveau projet* s'ouvre.
+. Sélectionnez *Créer un projet*, puis saisissez les informations suivantes :
++
+** *Nom du projet* : Saisissez un nom descriptif pour votre projet.
+** *Description du projet (facultatif)* : Vous pouvez fournir des détails supplémentaires sur votre projet.
+
+
+. Sélectionnez *Create*.
++
+Le nouveau projet apparaît dans la barre de notification en haut du plan de contrôle NetApp Data Migrator.
+
+
+
+
+
+== Déconnexion de NetApp Data Migrator
+
+Après vous être déconnecté de NetApp Data Migrator, vous devrez utiliser vos nouveaux identifiants (adresse e-mail et mot de passe) lors de votre prochaine connexion.
+
+.Étapes
+. Sélectionnez l'icône *Utilisateur* (à côté de *Paramètres*).
+. Sélectionnez *Déconnexion*. La page *Bienvenue* s'ouvre.
+. Dans les champs *Adresse e-mail* et *Mot de passe*, saisissez l'adresse e-mail et le mot de passe que vous avez enregistrés lorsque vous <<log-in,connecté>>.
+. Sélectionnez *Login*.
+
+
+.Et ensuite ?
+Après avoir appris à configurer NetApp Data Migrator, vous pouvez link:manage-projects.html["utiliser NetApp Data Migrator"].

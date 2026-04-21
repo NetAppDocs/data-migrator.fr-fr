@@ -1,0 +1,32 @@
+---
+sidebar: sidebar 
+permalink: faq.html 
+keywords: frequently asked questions, troubleshooting, connection errors, authentication, protocol errors 
+summary: 'Trouvez les réponses aux questions fréquentes sur NetApp Data Migrator concernant les erreurs de connexion, les échecs d"authentification, les problèmes de protocole et les erreurs d"autorisation.' 
+---
+= FAQ pour NetApp Data Migrator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Si vous rencontrez un problème lors de l'utilisation de NetApp Data Migrator, vous pourrez peut-être le résoudre rapidement en consultant ces questions fréquemment posées (FAQ) par d'autres utilisateurs.
+
+.Quelles sont les causes possibles des erreurs NT_STATUS_IO_TIMEOUT / NT_STATUS_ACCESS_DENIED / NT_STATUS_HOST_UNREACHABLE / NT_STATUS_UNSUCCESSFUL ?
+Cette erreur peut se produire si vous avez saisi des informations d'hôte incorrectes. Assurez-vous que le nom d'hôte ou l'adresse IP du serveur est correct et que le serveur est accessible. Vérifiez votre connectivité réseau et, le cas échéant, que votre DNS peut être résolu.
+
+.Quelles peuvent être les causes de l'erreur « Informations d'identification incorrectes - NT_STATUS_LOGON_FAILURE » ?
+Des identifiants de connexion incorrects peuvent entraîner des échecs d'authentification et de connexion. Assurez-vous d'avoir saisi les informations de connexion correctes.
+
+.Que signifie « Versions de protocole NFS ou SMB non prises en charge » ?
+Cela signifie que la version du protocole utilisée par le serveur de fichiers n'est pas prise en charge. Vérifiez la compatibilité des versions de protocole et mettez à niveau ou configurez le serveur de fichiers si nécessaire.
+
+.Quelles peuvent être les causes de l'erreur « Chemin d'exportation invalide » ?
+Vérifiez que le chemin d'exportation est correctement saisi et existe sur le serveur.
+
+.Quelles peuvent être les causes de l'erreur « Répertoire de travail invalide » ?
+Vérifiez que vous avez bien saisi le répertoire de travail correct pour le chemin d’exportation sélectionné.
+
+.Pourquoi est-ce que je reçois une erreur de « permission d'écriture » sur le répertoire de travail ?
+Cette erreur se produit lorsque le chemin d'exportation et le répertoire de travail sont correctement spécifiés, mais que les autorisations d'écriture nécessaires ne sont pas accordées. Sans le bon accès en écriture, la vérification préalable du serveur de fichiers échouera et l'utilisateur ne pourra pas exécuter de tâches. Vérifiez que l'utilisateur rencontrant cette erreur dispose bien du droit d'écriture requis.

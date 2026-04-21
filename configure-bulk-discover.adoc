@@ -1,0 +1,38 @@
+---
+sidebar: sidebar 
+permalink: configure-bulk-discover.html 
+keywords: bulk discover, storage inventory, export paths, data scan, migration planning 
+summary: 'Configurez la fonction Bulk Discover dans NetApp Data Migrator pour générer un aperçu de l"ensemble de votre capacité de stockage existante avant de commencer la migration de vos données.' 
+---
+= Planifiez la migration des données dans NetApp Data Migrator à l'aide de Bulk Discover
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Configurez la fonction « Exploration en masse » de NetApp Data Migrator pour obtenir rapidement un aperçu complet de votre capacité de stockage existante avant de commencer la migration de vos données. Une bonne compréhension de vos fichiers stockés et de la structure de votre système peut aider à rationaliser le processus de migration des données.
+
+.Étapes
+. Connectez-vous à NetApp Data Migrator.
+. Sélectionnez *Serveurs de stockage* > *Serveurs de fichiers* pour afficher la liste des serveurs de fichiers disponibles.
+. Sélectionnez le nom du serveur sur lequel vous souhaitez effectuer une découverte en masse, puis sélectionnez *Bulk Discover*.
+. Sélectionnez *Job Schedule*, puis choisissez l'une des options suivantes :
++
+** *Commencez maintenant* si vous souhaitez que la découverte commence immédiatement.
+** *Précisez la date et l'heure (UTC)* si vous souhaitez programmer le processus de découverte. Indiquez la date et l'heure auxquelles vous souhaitez que la tâche commence.
+
+
+. Choisissez l'une des options suivantes pour *Analyser les flux de données alternatifs* :
++
+** Sélectionnez *Oui* si vous souhaitez que NetApp Data Migrator découvre les flux de données alternatifs (ADS) associés à vos fichiers.
+** Sélectionnez *Non* si vous ne souhaitez pas que NetApp Data Migrator découvre les ADS associés à vos fichiers.
+
+
+. Dans la zone de texte *Modèles de chemins exclus*, saisissez les chemins que vous souhaitez exclure du processus de découverte. Vous devez saisir chaque chemin sur une nouvelle ligne.
+. Utilisez la *barre de recherche* pour trouver les chemins d'exportation spécifiques (dans les chemins répertoriés) que vous souhaitez inclure dans le processus de découverte, puis cochez la case à côté du *chemin(s) d'exportation*.
++
+Les chemins d'exportation devenus inaccessibles sont désactivés et ne peuvent être utilisés lors de la découverte. Par exemple, les chemins d'exportation supprimés ou n'apparaissant plus dans les résultats de la commande  `showmount -e` pour NFS, ou encore les chemins non renvoyés lors de l'énumération des partages SMB, sont désactivés.
+
+. Sélectionnez *Soumettre* et un message de notification s’affiche confirmant que la *Bulk Discover Job* a été créée. Sélectionnez le lien *View Job Listing* dans ce message pour afficher la page *Job Config List*, où votre nouvelle tâche est répertoriée dans le tableau *Job Listings*.
+

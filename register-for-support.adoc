@@ -1,0 +1,38 @@
+---
+sidebar: sidebar 
+permalink: register-for-support.html 
+keywords: netapp, data, migrator, support, register, account 
+summary: Enregistrez votre produit NetApp Data Migrator pour accéder à l’assistance NetApp. 
+---
+= Inscrivez-vous pour le support de NetApp Data Migrator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Enregistrez votre produit NetApp Data Migrator pour accéder à l’assistance NetApp.
+
+.Étapes
+. Sur la page d'accueil NetApp Data Migrator, sélectionnez *Aide (?)* > *À propos* > *Numéro de série*
+. Dans la boîte de dialogue *À propos de NDM*, notez l’ID d’instance NetApp Data Migrator.
++
+Il s'agit d'un nombre à 20 chiffres, commençant par 975.
+
+. Allez à la link:https://register.netapp.com["NetApp support page d'inscription au site"^].
+. Sélectionnez *Je ne suis pas un client enregistré NetApp*.
+. Renseignez les informations requises pour l'enregistrement du produit :
++
+.. Laissez le champ *NetApp Reference SN* vide.
+.. Dans le menu déroulant Gamme de produits, sélectionnez *NDM*.
+.. Dans le menu déroulant Fournisseur de facturation, sélectionnez *NetApp*.
++
+
+NOTE: Il n'y a pas de facturation pour ce produit.
+
+.. Saisissez l’ID d’instance Data Migrator NetApp à 20 chiffres dans le champ *N° de série NDM*.
+.. Remplissez les champs obligatoires restants, puis sélectionnez *Soumettre*.
+
+
+. Après l'envoi de votre formulaire, vous recevrez un courriel de confirmation d'inscription. Suivez les instructions contenues dans ce courriel pour confirmer votre inscription.
+

@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: access-data-migrator-ui.html 
+keywords: netapp, data, migrator, ui, control, plane, access, worker, linux, windows 
+summary: 'Accédez à l"interface utilisateur NetApp Data Migrator après le déploiement, connectez-vous au plan de contrôle et connectez les nœuds de calcul Linux et Windows déployés.' 
+---
+= Accédez à l’interface utilisateur du migreur de données NetApp
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Après avoir déployé la machine virtuelle du plan de contrôle et vérifié que les services et les pods fonctionnent correctement, accédez à l’interface utilisateur NetApp Data Migrator et connectez-vous au plan de contrôle, aux workers Linux et aux workers Windows.
+
+.Avant de commencer
+Vérifiez que vous disposez bien de l'adresse IP privée de la machine virtuelle du plan de contrôle, que vous avez obtenue lorsque vous link:deploy-control-plane-and-linux-workers.html["la machine virtuelle du plan de contrôle a été déployée"]. Vous utilisez l'adresse IP privée de la machine virtuelle du plan de contrôle pour accéder à l'interface utilisateur.
+
+.Étapes
+. Accédez au plan de contrôle à l'aide d'un navigateur Web :
++
+`\https://<control-plane-private-ip-address>/`
+
+. Utilisez le nom d'utilisateur et le mot de passe par défaut pour vous connecter.
+. En fonction de votre type de migration, sélectionnez l'un des onglets suivants :
++
+*NFS* : Cette option est destinée aux migrations NFS (workers Linux).
+
++
+*SMB* : Cette option est destinée aux migrations SMB (workers Windows).
+
+. Suivez les instructions à l'écran pour utiliser le plan de contrôle afin de vous connecter aux machines virtuelles de travail déployées.
++
+Sur la page d'accueil, sélectionnez *Afficher les instructions de configuration du travailleur*.
+
+. Vérifiez le statut dans la section *Workers* pour vous assurer que le worker est bien connecté.
++
+Une fois les nœuds de calcul connectés avec succès, vous pouvez configurer l'NetApp Data Migrator environnement et exécuter les tâches de migration.
+
+
+
+.Et ensuite ?
+Après avoir appris à accéder à l’interface utilisateur NetApp Data Migrator, vous pouvez link:configure-data-migrator.html["Configurer NetApp Data Migrator"].

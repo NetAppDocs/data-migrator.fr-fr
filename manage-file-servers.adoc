@@ -1,0 +1,233 @@
+---
+sidebar: sidebar 
+permalink: manage-file-servers.html 
+keywords: file servers, nfs, smb, worker association, export paths 
+summary: Utilisez NetApp Data Migrator pour ajouter, configurer et modifier les serveurs de fichiers qui utilisent les protocoles NFS ou SMB. 
+---
+= Ajouter et gérer des serveurs de fichiers
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez utiliser NetApp Data Migrator pour ajouter, configurer et modifier des serveurs de fichiers utilisant les protocoles NFS ou SMB.
+
+
+
+== Ajouter un nouveau serveur de fichiers
+
+Ajoutez un nouveau serveur de fichiers NFS ou SMB et configurez les machines virtuelles de travail.
+
+Selon la configuration de votre système, utilisez l'option de workflow Autre NAS ou Dell Isilon.
+
+[role="tabbed-block"]
+====
+.Autres NAS
+--
+.Étapes
+. Dans le panneau de navigation de gauche, sélectionnez *Serveurs de stockage*.
+. Sélectionnez *Serveurs de fichiers* > *+Ajouter*.
++
+La page *Serveurs de fichiers* s'ouvre, suivie de la page *Type de serveur*.
+
+. Saisissez le nom du serveur, puis sélectionnez *Type de serveur* comme Autre NAS.
++
+La page *Identifiants* s'ouvre.
+
+. Saisissez le *nom de l'hôte* (ou l'adresse IP) du serveur NFS ou SMB.
+. Si vous utilisez un serveur de fichiers NFS :
++
+** Veuillez saisir un *nom d'utilisateur* pour accéder aux partages de fichiers NFS.
+** Optionnellement, saisissez un *mot de passe*.
+** Sélectionnez une *version de protocole* pour NFS.
+** Dans le panneau *Mécanisme de récupération des chemins d'exportation*, sélectionnez *Découverte automatique* ou *Téléchargement manuel* :
++
+*Découverte automatique* détecte automatiquement les chemins d'exportation.
+
++
+*Téléchargement manuel* permet de charger manuellement les chemins d'exportation, ou dans des environnements où la *Découverte automatique* n'est pas prise en charge, comme le service NetApp Volumes (GCNV) Flex de Google Cloud. Après avoir ajouté un serveur de fichiers, <<manually-upload-export-paths,Vous devez télécharger manuellement les chemins d'exportation>>.
+
+
+
+. Si vous utilisez un serveur de fichiers *SMB* :
++
+** Veuillez saisir un *nom d'utilisateur* pour accéder aux partages de fichiers SMB.
+** Saisissez un *mot de passe*.
+** Sélectionnez une *version de protocole* pour SMB.
+
+
+. Sélectionnez l'onglet *Workers*.
++
+.. Dans la colonne *Associé*, sélectionnez le bouton bascule en regard de chacun des travailleurs que vous souhaitez associer à un serveur.
+.. Sélectionnez *Continuer* pour lancer une opération de pré-vérification qui teste si le ou les travailleurs sélectionnés ont une connectivité à NetApp Data Migrator.
+
+
+. Une fois la vérification préalable terminée, vous devez corriger les erreurs signalées. (Consultez la FAQ du serveur de fichiers pour plus de détails sur la résolution des erreurs).
++
+Si la vérification préalable se termine sans erreur, sélectionnez l'onglet *Job Config*, puis sélectionnez *Finish.* Le nom de votre serveur de fichiers apparaît sous la liste des *File Servers*.
+
++
+L'état d'un serveur de fichiers est indiqué dans la colonne *Status* du tableau *File Servers*. Les types d'état incluent :
+
++
+** *Actif* : Aucune erreur n’a été détectée et toutes les informations ont été validées.
+** *En cours :* La validation du serveur est en cours.
+** *Brouillon* : Aucun travailleur n’a été associé à un serveur de fichiers.
+** *Erreur* : Des problèmes d’autorisations, aucun chemin d’accès disponible ou seul « / » est disponible comme chemin d’exportation. Ces problèmes peuvent survenir si vous sélectionnez *Découverte automatique* pour le chemin d’exportation lors de la création du serveur de fichiers.
+
+
+
+
+--
+.Dell Isilon
+--
+.Étapes
+. Dans le panneau de navigation de gauche, sélectionnez *Serveurs de stockage*.
+. Sélectionnez *Serveurs de fichiers* > *+Ajouter*.
++
+La page *Serveurs de fichiers* s'ouvre, suivie de la page *Type de serveur*.
+
+. Saisissez un *Nom de configuration* pour votre serveur de fichiers Isilon.
+. Sélectionnez *Dell Isilon* dans la liste déroulante *Type de serveur*.
++
+La section *Console de gestion* s'ouvre :
+
+. Saisissez l’*hôte de gestion* (nom de l'hôte ou adresse IP de la console de gestion Isilon).
+. Saisissez le *nom d'utilisateur* pour accéder à l'API de gestion Isilon.
+. Saisissez le *mot de passe*.
+. Sélectionnez *Procéder* pour récupérer le certificat TLS depuis le cluster Isilon.
+. Vérifiez les détails du *certificat TLS* affichés dans la fenêtre modale :
++
+.. Vérifiez l'émetteur du certificat, les dates de validité et l'empreinte digitale.
+.. Sélectionnez *Accepter* pour faire confiance au certificat et continuer.
+.. Sélectionnez *Rejeter* pour annuler si vous ne faites pas confiance au certificat.
+
+
+. La page *Identifiants de zone* s'ouvre :
++
+.. Sélectionnez une ou plusieurs *zones d'accès* parmi les zones disponibles détectées.
+.. Pour chaque zone sélectionnée, configurez les informations d'identification du protocole :
+.. Sélectionnez l'*adresse IP NFS* dans la liste déroulante.
+.. Veuillez saisir un *nom d'utilisateur* pour accéder aux chemins d'exportation NFS.
+.. Saisissez l'adresse IP SMB.
+.. Veuillez saisir un *nom d'utilisateur* pour accéder aux partages de fichiers SMB.
+.. Saisissez un *mot de passe*.
+
+
++
+
+NOTE: Si une adresse IP de service SmartConnect (SSIP) est configurée sur le cluster Isilon, vous pouvez sélectionner le nom de domaine de zone SmartConnect dans la liste déroulante Adresse IP. Lorsqu'un nom de domaine activé SSIP est utilisé, l'infrastructure Isilon SmartConnect gère l'équilibrage de charge des connexions et le résout au niveau de la couche de stockage. NetApp Data Migrator n'effectue aucun équilibrage de charge supplémentaire dans cette configuration.
+
+. L'onglet *Workers* s'ouvre :
++
+.. Pour chaque combinaison de zone et de protocole, affectez des travailleurs :
++
+Dans la colonne *Associé*, sélectionnez le bouton bascule en regard de chacun des travailleurs que vous souhaitez associer.
+
+.. Sélectionnez *Continuer* pour lancer une opération de pré-vérification qui teste si le ou les travailleurs sélectionnés ont une connectivité à NetApp Data Migrator et au serveur de fichiers Isilon.
+
+
+. Une fois la vérification préalable terminée, corrigez les erreurs signalées.
++
+Si la vérification préalable se termine sans erreur, le nom de votre serveur de fichiers apparaît dans la liste des serveurs de fichiers. Le menu déroulant des serveurs de fichiers affichés indique les zones configurées.
+
+
+
+--
+====
+
+
+== Téléversez manuellement les chemins d’exportation et de répertoire
+
+NetApp Data Migrator vous permet de télécharger manuellement les chemins d’exportation et les chemins de répertoires pour les utiliser dans les opérations de migration des données via le protocole NFS. Cette fonctionnalité est utile dans les environnements où la détection automatique des chemins d’exportation NFS est indisponible. Par exemple, pour une utilisation avec le service GCNV Flex ou lors de la migration de chemins de répertoires au lieu du chemin d’exportation complet. Si vous sélectionnez *Téléchargement manuel* dans le panneau *Mécanisme de récupération des chemins d’exportation*, vous devez télécharger et compléter le fichier modèle fourni par NetApp Data Migrator après avoir créé un serveur de fichiers.
+
+
+NOTE: Utilisez cette option lorsque vous devez configurer la migration au niveau du répertoire. Dans les cas où la migration concerne des répertoires spécifiques plutôt que des exportations complètes, saisissez directement les chemins de répertoire dans la feuille de calcul Excel. Cela garantit que le flux de migration traite chaque répertoire individuellement, sans nécessiter de saisie au niveau de l'exportation.
+
+.Étapes
+. Dans le panneau de navigation de gauche, sélectionnez *Serveurs de stockage*.
+. Sélectionnez *Serveurs de fichiers*.
+. Sélectionnez *Cliquez ici pour télécharger les chemins d’exportation*.
+. Sélectionnez *Télécharger le modèle* pour télécharger un modèle de fichier CSV.
+. Enregistrez vos chemins d'exportation et vos chemins de répertoire dans le fichier CSV.
+. Sélectionnez *Cliquez ici pour télécharger les chemins d'exportation*, puis sélectionnez le fichier CSV contenant vos chemins d'exportation et chemins de répertoire.
++
+Les chemins d'exportation et les chemins de répertoire apparaissent sous *Chemins*.
+
+. Si vous devez inclure d'autres chemins d'exportation ou chemins de répertoire, ajoutez-les à votre fichier, puis sélectionnez *Re-Upload Export Paths*.
+
+
+Une fois le chargement terminé, les chemins d'exportation et les chemins de répertoire peuvent avoir l'un des types de statut suivants :
+
+* *Valide* : Le chemin a été téléchargé avec succès et vous pouvez monter et démonter ce chemin.
+* *Invalide* : Le chemin d’accès n’a pas pu être téléchargé.
+* *Désactivé* : Le chemin est disponible, mais pas dans le fichier que vous avez téléchargé.
+
+
+
+
+== Modifier les détails du serveur de fichiers
+
+Si nécessaire, vous pouvez apporter des modifications à un serveur de fichiers précédemment configuré.
+
+Modifiez les détails du serveur de fichiers à l'aide de l'option de flux de travail Autre NAS ou Dell Isilon.
+
+[role="tabbed-block"]
+====
+.Autres NAS
+--
+.Étapes
+. Sélectionnez le menu d'actions situé à côté du serveur de fichiers que vous souhaitez modifier.
+. Sélectionnez *Modifier le serveur de fichiers*. Si vous avez sélectionné l'option *Téléchargement manuel* pour *Récupération du chemin d'exportation*, seuls les chemins valides sont affichés.
+. Sélectionnez l'onglet *Type de serveur*, effectuez les modifications nécessaires, puis sélectionnez *Continuer*.
+. Sélectionnez l'onglet *Identifiants*, effectuez les modifications nécessaires, puis sélectionnez *Continuer*.
+. Sélectionnez l'onglet *Travailleurs*, effectuez les modifications nécessaires, puis sélectionnez *Soumettre*.
+
+
+--
+.Dell Isilon
+--
+.Étapes
+. Sélectionnez le menu d'actions situé à côté du serveur de fichiers parent que vous souhaitez modifier.
+. Sélectionnez *Modifier le serveur de fichiers*.
+. Sélectionnez l'onglet *Type de serveur* :
++
+.. Mettez à jour le *Nom de la configuration* si nécessaire.
+.. Mettez à jour *nom d'utilisateur* ou *mot de passe* si nécessaire.
+.. Sélectionnez *Procéder*.
+
+
++
+
+NOTE: Vous ne pouvez pas modifier le *Type de serveur* (Dell Isilon) et l'*Hôte de gestion*.
+
+. Sélectionnez l'onglet *Identifiants de zone* :
++
+.. Ajoutez de nouvelles zones en sélectionnant des zones supplémentaires dans la liste disponible.
+.. Mettez à jour les informations d'identification du protocole pour chaque zone :
++
+Mettez à jour l'*adresse IP NFS*, le *nom d'utilisateur* ou le *mot de passe* selon les besoins.
+
++
+Mettez à jour l'*adresse IP SMB*, le *nom d'utilisateur* ou le *mot de passe* selon vos besoins.
+
+.. Sélectionnez *Procéder*.
+
+
+. Sélectionnez l'onglet *Workers* :
++
+.. Mettez à jour les affectations des workers pour chaque zone et protocole en activant ou désactivant les workers dans la colonne *Associated*.
+.. Sélectionnez *Continuer* pour exécuter la validation préalable sur tous les nouveaux workers affectés.
+
+
+. Sélectionnez l'onglet *Job Config* :
++
+.. Mettez à jour le *répertoire de travail* si nécessaire.
+.. Sélectionnez *Terminer*.
+
+
+
+
+--
+====

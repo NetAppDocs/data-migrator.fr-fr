@@ -1,0 +1,88 @@
+---
+sidebar: sidebar 
+permalink: port-requirements.html 
+keywords: port requirements, TCP, UDP, control plane, worker, communication 
+summary: Exigences en matière de ports pour NetApp Data Migrator, y compris les ports TCP et UDP requis pour la communication entre le plan de contrôle et les workers. 
+---
+= Exigences de port pour NetApp Data Migrator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous devez vous assurer que certains ports TCP sont ouverts pour permettre la communication entre les machines virtuelles (VM) du plan de contrôle et les VM de travail dans NetApp Data Migrator.
+
+
+
+== ports du plan de contrôle
+
+[cols="1,1,1,1a"]
+|===
+| Service | port TCP | Depuis | À 
+
+
+| Serveur Temporal | 7233 ou 7234 | Travailleurs et clients  a| 
+Plan de contrôle
+
+
+
+| Interface utilisateur temporelle | 8080 | Port par défaut, si activé  a| 
+Plan de contrôle
+
+
+
+| PostgreSQL (base de données temporelle) | 5432 | Services temporaires (depuis le plan de contrôle)  a| 
+Plan de contrôle
+
+
+
+| Redis | 6379 | Services de plan de contrôle ou de worker  a| 
+Plan de contrôle
+
+
+
+| API ou interface utilisateur (votre application) | 80 ou 443 | Navigateur ou tout client externe  a| 
+Plan de contrôle
+
+
+
+| Grafana | 3000 | Navigateur  a| 
+Plan de contrôle
+
+|===
+
+
+== Ports de travailleur
+
+[cols="1,1,1,1a"]
+|===
+| Service | port TCP | Depuis | À 
+
+
+| Sortant vers le plan de contrôle | 7233 | Services dans le plan de contrôle  a| 
+Interface Temporal
+
+
+
+| Sortant vers le plan de contrôle | 6379 | Services dans le plan de contrôle  a| 
+Redis
+
+
+
+| Sortant vers le plan de contrôle | 80 ou 443 | Navigateur  a| 
+API ou interface utilisateur (si vous l’appelez)
+
+
+
+| Sortie vers le stockage | 2049 | Travailleur  a| 
+Serveurs NFS
+
+*Remarque* : Incluez le port TCP ou UDP 111 si vous avez besoin du service portmapper pour les Remote Procedure Calls.
+
+
+
+| Sortie vers le stockage | 445 | Travailleur  a| 
+Serveurs SMB
+
+|===

@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: register-for-account.html 
+keywords: netapp, data, migrator, new, support, register, account 
+summary: 'Si vous êtes un nouveau NetApp client, vous devez créer un NetApp compte et compléter le processus d"inscription.' 
+---
+= Inscrivez-vous pour un compte NetApp Data Migrator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Si vous êtes un nouveau client NetApp, vous devez créer un compte NetApp et suivre la procédure d'inscription. Si vous possédez déjà un compte NetApp, vous pouvez passer à link:deploy-control-plane-and-linux-workers.html["Déployez le plan de contrôle et les machines virtuelles de travail Linux pour NetApp Data Migrator"].
+
+
+NOTE: La mise à niveau de votre nouveau compte NetApp sur le site d'assistance, de l'*accès invité* à l'*accès complet*, peut prendre jusqu'à un jour ouvré.
+
+.Étapes
+. Inscrivez-vous pour obtenir un compte sur le link:https://mysupport.netapp.com/site/user/registration["Site de support NetApp"^] en utilisant votre adresse e-mail professionnelle.
+. Sélectionnez *Soumettre*.
+. Authentifiez l'initiation de l'inscription en saisissant le mot de passe à usage unique envoyé à votre adresse électronique.
+. Sur la page de confirmation d'inscription, veuillez fournir les informations requises :
++
+.. Pour le niveau d'accès utilisateur, sélectionnez *NetApp Customer/End User*.
+.. Dans le champ Numéro de série, saisissez `NDMNSSREG`.
+
+
+. Sélectionnez *Soumettre*. Une fenêtre de confirmation apparaît indiquant que l'inscription de l'utilisateur a été soumise avec succès.
+
+
+Si vous rencontrez des problèmes lors de votre inscription ou si vous souhaitez vérifier l'état de votre inscription, link:https://mysupport.netapp.com/site/help["ouvrir un ticket d'assistance"^].
+
+.Et ensuite ?
+Après avoir appris comment créer un compte, vous pouvez link:deploy-control-plane-and-linux-workers.html["Déployer le plan de contrôle et les machines virtuelles de travail Linux"].

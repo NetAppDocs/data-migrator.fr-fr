@@ -1,0 +1,64 @@
+---
+sidebar: sidebar 
+permalink: manage-projects.html 
+keywords: projects, project management, user roles, create project, project admin 
+summary: 'Utilisez l"onglet Projets dans le plan de contrôle NetApp Data Migrator pour créer, modifier ou basculer entre des projets.' 
+---
+= Créer et gérer des projets dans NetApp Data Migrator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez utiliser l'onglet Projets dans le plan de contrôle NetApp Data Migrator pour créer, modifier ou basculer entre des projets.
+
+
+
+== Créer un projet
+
+Les utilisateurs administrateurs d'applications peuvent créer un nouveau projet dans NetApp Data Migrator et y affecter des utilisateurs ayant des rôles définis.
+
+.Étapes
+. Connectez-vous à NetApp Data Migrator.
+. Sélectionnez *Paramètres* > *Projets* pour afficher la liste des projets existants.
+. Sélectionnez *Ajouter un projet* et une nouvelle fenêtre apparaît.
+. Saisissez le *Nom du projet* et la *Description du projet (facultatif)*.
+. Ajoutez des utilisateurs à votre projet :
++
+** Sélectionnez un *utilisateur* dans la liste déroulante.
+** Attribuez un *Role* à l'utilisateur (*App Admin*, *Project Admin* ou *Project Viewer*).
+** Sélectionnez *+Ajouter*.
+
+
+. Sélectionnez *Enregistrer et confirmer.*
+. Sélectionnez *Soumettre* et un message de confirmation apparaît, indiquant que le projet a été créé avec succès.
+
+
+
+
+== Modifier un projet
+
+Vous pouvez rapidement modifier les détails de votre projet, s'ils nécessitent une mise à jour.
+
+.Étapes
+. Sélectionnez *Paramètres* dans la barre de navigation supérieure.
+. Sélectionnez l'onglet *Projets* pour afficher la liste des projets existants.
+. Sélectionnez *(⋮)* à côté des détails du projet que vous souhaitez modifier, puis sélectionnez *Modifier le projet* dans le menu déroulant.
+. Mettez à jour le nom du projet, la description du projet ou ajoutez de nouveaux utilisateurs selon les besoins.
+. Sélectionnez *Soumettre* pour enregistrer les modifications.
+
+
+
+
+== Alterner entre les projets
+
+Si vous suivez plusieurs projets simultanément, vous pouvez passer rapidement de l'un à l'autre.
+
+.Étapes
+. Sélectionnez le menu déroulant *Projet* dans la barre de navigation supérieure,
+. Sélectionnez le nom du projet actuel pour ouvrir le menu *Sélection du projet* et une liste des projets disponibles apparaît.
+. Utilisez la barre *Rechercher des projets* pour trouver rapidement le projet vers lequel vous souhaitez basculer.
+. Cochez la case en regard du nom du projet vers lequel vous souhaitez basculer.
+. Sélectionnez *Changer* pour charger le projet sélectionné.
+

@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: networking-requirements.html 
+keywords: networking requirements, TCP, UDP, control plane, worker, communication 
+summary: Exigences réseau pour NetApp Data Migrator, y compris les ports TCP et UDP requis pour la communication du plan de contrôle et des nœuds de calcul. 
+---
+= Vérifiez l'accès réseau NFS et SMB dans NetApp Data Migrator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous devez vous assurer que l'adresse IP et le sous-réseau du plan de contrôle et des nœuds de calcul sont autorisés dans les règles d'export du système de stockage. Ceci est nécessaire pour prendre en charge les migrations NFS et SMB à l'aide de NetApp Data Migrator.
+
+
+
+== Vérifier l'accès NFS
+
+Pour NFS, le plan de contrôle et les nœuds de travail doivent être autorisés à accéder au système de stockage en tant que clients racine.
+
+.Étapes
+. Effectuez un montage manuel à partir d'un nœud de travail pour vérifier l'accessibilité du volume :
++
+[source, cli]
+----
+sudo mount -t nfs <storage-ip>:/<volume-path> /mnt/test
+ls -la /mnt/test
+----
+. Assurez-vous que l'accès root est activé en vérifiant que la règle d'export autorise l'accès superutilisateur. Si nécessaire, activez l'accès root (sans root squash) en modifiant la règle d'export.
+
+
+
+
+== Vérifier l'accès SMB
+
+Pour l'accès SMB, le plan de contrôle et les nœuds de travail doivent être autorisés à accéder au système de stockage à l'aide des identifiants SMB. L'utilisateur SMB doit appartenir aux groupes Backup operators et Administrators.
+
+.Étape
+. Effectuez un montage manuel à partir d'un nœud de travail pour vérifier l'accessibilité du volume :
++
+[source, cli]
+----
+net use Z: \\<storage-ip>\<share> /user:<domain>\<username> <password>
+----
+

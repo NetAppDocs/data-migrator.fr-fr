@@ -1,0 +1,91 @@
+---
+settings:
+  name: NetApp Data Migrator
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: fr-fr,us-en,de-de,es-es,it-it,pt-br,ja-jp,ko-kr,zh-cn,zh-tw
+sidebar:
+  entries:
+  - title: Documentation de NetApp Data Migrator
+    url: "/index.html"
+  - title: Notes de version
+    entries:
+    - title: Quoi de neuf
+      url: "/whats-new.html"
+    - title: Matrice de support
+      url: "/support-matrix.html"
+    - title: Problèmes connus
+      url: "/known-issues.html"
+    - title: Limitations connues
+      url: "/known-limitations.html"
+  - title: Commencer
+    entries:
+    - title: Découvrez NetApp Data Migrator
+      url: "/learn-about-data-migrator.html"
+    - title: Décidez si vous souhaitez utiliser NetApp Data Migrator
+      url: "/decide-to-use-data-migrator.html"
+    - title: Démarrage rapide
+      url: "/quick-start.html"
+    - title: Exigences de mise en réseau
+      entries:
+      - title: Vérifier l'accès au réseau
+        url: "/networking-requirements.html"
+      - title: Exigences relatives aux ports
+        url: "/port-requirements.html"
+  - title: Installation, configuration et mise à niveau
+    entries:
+    - title: Découvrez comment installer NetApp Data Migrator
+      url: "/learn-about-install.html"
+    - title: Inscrivez-vous pour un compte
+      url: "/register-for-account.html"
+    - title: Déployer le plan de contrôle et les nœuds Linux
+      url: "/deploy-control-plane-and-linux-workers.html"
+    - title: Créer les machines virtuelles du plan de contrôle et des nœuds de calcul
+      url: "/create-control-plane-and-worker-vms.html"
+    - title: Valider le plan de contrôle et le déploiement des nœuds de calcul
+      url: "/validate-control-plane-vm.html"
+    - title: Accéder à l'interface utilisateur de migration des données NetApp
+      url: "/access-data-migrator-ui.html"
+    - title: Configurer NetApp Data Migrator
+      url: "/configure-data-migrator.html"
+    - title: Mise à niveau du plan de contrôle et des workers
+      url: "/upgrade.html"
+  - title: Utilisez NetApp Data Migrator
+    entries:
+    - title: Créer et gérer des projets
+      url: "/manage-projects.html"
+    - title: Gérer les utilisateurs
+      entries:
+      - title: Ajouter et gérer des utilisateurs
+        url: "/manage-users.html"
+      - title: Gérer le contrôle d'accès
+        url: "/access-control.html"
+    - title: Ajouter et gérer des serveurs de fichiers
+      url: "/manage-file-servers.html"
+    - title: Configurer les notifications en temps réel
+      url: "/configure-notifications.html"
+    - title: Gérer les options de migration
+      entries:
+      - title: Planifier la migration des données
+        url: "/configure-bulk-discover.html"
+      - title: Configurer la migration en masse
+        url: "/configure-bulk-migrate.html"
+      - title: Configurer la bascule en masse
+        url: "/configure-bulk-cutover.html"
+    - title: Gérer les tâches et les exécutions de tâches
+      url: "/manage-jobs.html"
+    - title: Générer un bundle de support
+      url: "/generate-support-bundle.html"
+  - title: FAQ
+    url: "/faq.html"
+  - title: Obtenez de l'aide
+    entries:
+    - title: Inscrivez-vous pour obtenir de l'aide
+      url: "/register-for-support.html"
+    - title: Dépannage
+      url: "/troubleshoot.html"
+  - title: Mentions légales
+    url: "/legal-notices.html"

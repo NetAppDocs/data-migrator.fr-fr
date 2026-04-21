@@ -1,0 +1,23 @@
+---
+sidebar: sidebar 
+permalink: generate-support-bundle.html 
+keywords: support bundle, diagnostics, troubleshooting, log files, download report 
+summary: 'Générez et téléchargez un ensemble de support NetApp Data Migrator contenant des journaux de diagnostic, des rapports d"erreurs et des données de configuration pour le dépannage.' 
+---
+= Générer un ensemble de support NetApp Data Migrator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Data Migrator vous permet de générer un ensemble de ressources pour vous aider à résoudre les problèmes que vous pourriez rencontrer. Cet ensemble contient des informations de diagnostic telles que les fichiers journaux, les rapports d’erreurs et les données de configuration.
+
+.Étapes
+. Connectez-vous à NetApp Data Migrator.
+. Sélectionnez *Aide* dans la barre de navigation, puis sélectionnez l’option Support Bundle.
+. Sélectionnez *Date*. Saisissez la plage de dates que vous souhaitez inclure dans le support bundle.
+. Sélectionnez *Autres indicateurs*. Saisissez les autres indicateurs que vous souhaitez inclure dans le support bundle.
+. Sélectionnez *Générer le pack de support*. Une fois le pack prêt, l’option *Télécharger le rapport* devient active.
+. Sélectionnez *Télécharger le rapport*.
+

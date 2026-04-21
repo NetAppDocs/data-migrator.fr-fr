@@ -1,0 +1,56 @@
+---
+sidebar: sidebar 
+permalink: decide-to-use-data-migrator.html 
+keywords: netapp data migrator, snapmirror, data migration, ontap 
+summary: Utilisez cette matrice de décision pour déterminer si vous devez utiliser NetApp Data Migrator ou SnapMirror pour vos scénarios de migration des données. 
+---
+= Décidez si vous souhaitez utiliser NetApp Data Migrator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Utilisez la matrice de décision pour déterminer s'il faut utiliser NetApp Data Migrator ou SnapMirror pour vos opérations de migration des données NFS et SMB à partir d'un système de stockage ONTAP sur site. Par exemple, si vous migrez des fichiers NFS et SMB depuis une source ONTAP sur site exécutant ONTAP 9.12.1 vers une destination Google Cloud NetApp Volumes Flex service, vous devez utiliser NetApp Data Migrator.
+
+[cols="2,1,1,1,1,1,1a"]
+|===
+| Source du système de stockage sur site ou tiers | Amazon FSx for NetApp ONTAP | Matériel Azure NetApp Files | Cloud Volumes ONTAP | Google Cloud NetApp Volumes matériel | Google Cloud NetApp Volumes Flex | Google Cloud NetApp Volumes Flex (basé sur VSA) 
+
+
+| ONTAP sur site À partir de ONTAP 9.10.1 | SnapMirror | SnapMirror | SnapMirror | SnapMirror | NetApp Data Migrator  a| 
+SnapMirror
+
+
+
+| ONTAP sur site Pour ONTAP 9.9.1 et versions antérieures | NetApp Data Migrator | NetApp Data Migrator | NetApp Data Migrator | NetApp Data Migrator | NetApp Data Migrator  a| 
+NetApp Data Migrator
+
+
+
+| Systèmes et baies de stockage non-NetApp | NetApp Data Migrator | NetApp Data Migrator | NetApp Data Migrator | NetApp Data Migrator | NetApp Data Migrator  a| 
+NetApp Data Migrator
+
+
+
+| Cloud Volumes ONTAP À partir de ONTAP 9.10.1 | SnapMirror | SnapMirror | SnapMirror | SnapMirror | NetApp Data Migrator  a| 
+SnapMirror
+
+
+
+| Cloud Volumes ONTAP pour ONTAP 9.9.1 et versions antérieures | NetApp Data Migrator | NetApp Data Migrator | NetApp Data Migrator | NetApp Data Migrator | NetApp Data Migrator  a| 
+NetApp Data Migrator
+
+
+
+| Google Cloud NetApp Volumes Flex | Non Concerné | Non Concerné | NetApp Data Migrator | NetApp Data Migrator | Non Concerné  a| 
+NetApp Data Migrator
+
+
+
+| Migration de données sans autorisation | NetApp Data Migrator | NetApp Data Migrator | NetApp Data Migrator | NetApp Data Migrator | NetApp Data Migrator  a| 
+NetApp Data Migrator
+
+|===
+.Informations connexes
+Apprenez-en plus sur link:https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-disaster-recovery-concept.html["SnapMirror volume réplication"^]

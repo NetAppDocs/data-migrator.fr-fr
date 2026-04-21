@@ -1,0 +1,85 @@
+---
+sidebar: sidebar 
+permalink: manage-users.html 
+keywords: user management, rbac, app admin, user accounts, access control 
+summary: 'Ajoutez et gérez les utilisateurs de NetApp Data Migrator avec un contrôle d"accès basé sur les rôles, y compris la création de comptes, l"attribution de rôles et l"activation ou la désactivation de l"accès.' 
+---
+= Ajouter et gérer des utilisateurs dans NetApp Data Migrator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Data Migrator utilise link:access-control.html["Contrôle d'accès basé sur les rôles (RBAC)"] pour assurer une gestion sécurisée et efficace des activités de migration des données. Après la configuration des machines virtuelles de contrôle et de travail (VM), les utilisateurs App Admin peuvent créer et attribuer des rôles à de nouveaux utilisateurs. Cela permet aux nouveaux utilisateurs de se connecter, de consulter ou de gérer des projets, et d'effectuer d'autres activités de migration, selon leurs autorisations.
+
+.À propos de cette tâche
+Vous devez être connecté en tant qu'App Admin pour ajouter un nouvel utilisateur, activer ou désactiver un utilisateur existant ou réinitialiser le mot de passe d'un utilisateur.
+
+
+
+== Ajouter un nouvel utilisateur
+
+Créez un nouvel utilisateur et partagez le mot de passe temporaire.
+
+.Étapes
+. Connectez-vous à NetApp Data Migrator.
+. Sélectionnez *Paramètres* > *Utilisateurs* pour afficher la liste des utilisateurs enregistrés.
+. Sélectionnez *Ajouter un utilisateur*.
+. Saisissez le *Prénom*, le *Nom* et l'*Adresse e-mail* du nouvel utilisateur.
+. Si le nouvel utilisateur a besoin de droits d'administrateur, cochez la case *App Admin*.
+. Sélectionnez *Soumettre*.
+. Sélectionnez le lien *Copier* (à côté du champ du mot de passe) pour copier le mot de passe temporaire, qui est affiché sous forme masquée.
+. Sélectionnez *Fermer*.
+. Partagez le mot de passe temporaire copié avec le nouvel utilisateur, qui pourra ensuite l'utiliser pour se connecter. Lors de sa première connexion, il lui sera demandé de modifier son mot de passe.
+
+
+
+
+== Désactiver un utilisateur existant
+
+Désactivez l'accès à NetApp Data Migrator pour les autres utilisateurs. Cela empêche les utilisateurs de se connecter, mais ne supprime pas les données utilisateur ni les tâches de migration ou journaux précédents associés à cet utilisateur.
+
+.Étapes
+. Sélectionnez l'icône *Paramètres* dans la barre de navigation.
+. Sélectionnez l'onglet *Utilisateurs* pour afficher la liste des utilisateurs enregistrés.
+. Sélectionnez l'icône *(⋮)* à côté des détails de l'utilisateur qui est désactivé, puis sélectionnez *Désactiver l'accès* dans le menu déroulant.
++
+Le statut de l'utilisateur passe de *Actif* à *Inactif* et il ne peut plus se connecter à NetApp Data Migrator.
+
+
+
+
+
+== Activer un utilisateur
+
+Rétablir l'accès à NetApp Data Migrator pour un utilisateur désactivé, lui permettant de se connecter et d'effectuer des actions en fonction des autorisations qui lui sont attribuées.
+
+.Étapes
+. Sélectionnez l'icône *Paramètres* dans la barre de navigation.
+. Sélectionnez l'onglet *Utilisateurs* pour afficher la liste des utilisateurs enregistrés.
+. Sélectionnez l'icône *(⋮)* à côté des détails de l'utilisateur qui est activé, puis sélectionnez *Enable Access* dans le menu déroulant.
++
+Le statut de l'utilisateur passe de *Inactif* à *Actif*. L'utilisateur peut désormais se connecter à NetApp Data Migrator.
+
+
+
+
+
+== Réinitialiser le mot de passe utilisateur
+
+Réinitialiser le mot de passe d'un utilisateur existant.
+
+
+NOTE: Pour réinitialiser le mot de passe d'un utilisateur App Admin lorsqu'aucun autre App Admin n'est disponible, contactez ng-ndm-downloads@netapp.com pour obtenir le script de réinitialisation du mot de passe.
+
+.Étapes
+. Sélectionnez l'icône *Paramètres* dans la barre de navigation.
+. Sélectionnez l'onglet *Utilisateurs* pour afficher la liste des utilisateurs enregistrés.
+. Sélectionnez l'icône *(⋮)* à côté des détails de l'utilisateur dont le mot de passe doit être réinitialisé, puis sélectionnez *Réinitialiser le mot de passe* dans le menu déroulant.
++
+Un message s'affiche confirmant que la réinitialisation du mot de passe a réussi.
+
+. Sélectionnez le lien *Copier* (à côté du champ du mot de passe) pour copier le mot de passe temporaire qui s'affiche sous forme masquée.
+. Partagez le mot de passe temporaire copié avec l'utilisateur.
+

@@ -1,0 +1,115 @@
+---
+sidebar: sidebar 
+permalink: upgrade.html 
+keywords: upgrade, control plane, worker vm, upgrade bundle, version update 
+summary: Mettez à niveau un plan de contrôle, un nœud de calcul Linux ou un nœud de calcul Windows dans NetApp Data Migrator. 
+---
+= Mettez à niveau le plan de contrôle et les nœuds de calcul dans NetApp Data Migrator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez mettre à niveau un plan de contrôle, un nœud de calcul Linux ou un nœud de calcul Windows dans NetApp Data Migrator.
+
+.Avant de commencer
+* Arrêtez toutes les exécutions de tâches et rendez tous les travaux inactifs.
+* Téléchargez le bundle de mise à niveau (fichier tar.gz) depuis le site d'assistance NetApp et enregistrez-le dans votre répertoire local.
+* Vérifiez que les nœuds de calcul utilisés sont en ligne. Les nœuds de calcul hors ligne lors d'une mise à niveau ne sont pas mis à niveau.
+
+
+
+
+== Étape 1 : Téléchargez le pack de mise à niveau
+
+Téléchargez le bundle de mise à niveau depuis votre répertoire local.
+
+.Étapes
+. Connectez-vous à l’interface utilisateur NetApp Data Migrator, puis accédez à la page d’accueil.
+. Sélectionnez l'icône d'aide en haut à droite.
+. Sélectionnez l'onglet *Mise à niveau*.
+. Sélectionnez *Select file*, puis sélectionnez le fichier tar.gz du bundle de mise à niveau.
+. Sélectionnez *Téléverser* après avoir sélectionné le fichier.
++
+Attendez que le message confirmant que le téléchargement et la validation sont terminés s'affiche.
+
+. Vous pouvez également recommencer la procédure en sélectionnant *Start Over* pour télécharger un fichier différent.
+
+
+
+
+== Étape 2 : Mise à niveau du plan de contrôle et des workers
+
+Mettez à niveau le plan de contrôle, puis le worker Linux ou Windows.
+
+.Étapes
+. Sélectionnez *Mise à niveau*. Le système lance la mise à niveau du plan de contrôle. Cette opération prend environ cinq à dix minutes.
++
+Pendant la mise à jour, l'interface utilisateur peut être temporairement indisponible car l'application redémarre avec la nouvelle version. Reconnectez-vous à l'interface utilisateur lorsqu'elle redevient accessible.
+
+. Une fois la mise à niveau terminée, retournez à la page *Upgrade*.
+. Vérifiez que l'état de la mise à niveau est *Success*.
+. Après une mise à niveau réussie du plan de contrôle, la mise à niveau des workers démarre automatiquement pour tous les workers en ligne.
++
+
+NOTE: Les workers en ligne s'installent et redémarrent automatiquement avec la nouvelle version. Les workers hors ligne ne sont pas mis à niveau.
+
+. Si la mise à niveau d'un worker ne démarre pas automatiquement, utilisez SSH pour vous connecter au worker et lancer la mise à niveau :
++
+[role="tabbed-block"]
+====
+.Worker Linux
+--
+[source, cli]
+----
+sudo /opt/datamigrator/staging/<version>/upgrade.sh <version>
+----
+--
+.Worker Windows
+--
+[source, cli]
+----
+ExecutionPolicy Bypass -File C:\datamigrator\staging\<version>\upgrade.ps1 -Version <version>
+----
+--
+====
+
+
+
+
+== Étape 3 : Consulter les journaux et résoudre les problèmes
+
+Consultez les journaux de la machine virtuelle pour faciliter le dépannage des problèmes rencontrés lors de la mise à niveau.
+
+.Étapes
+. Connectez-vous à la machine virtuelle du plan de contrôle via SSH et exécutez la commande suivante pour consulter les journaux :
++
+[source, cli]
+----
+tail -f /upgrade/upgrade-<version>.log
+----
+. Connectez-vous à la machine virtuelle de travail Linux ou Windows via SSH et consultez les journaux en utilisant le chemin suivant :
++
+[role="tabbed-block"]
+====
+.Worker Linux
+--
+[source, cli]
+----
+/opt/datamigrator/upgrade.log
+----
+--
+.Worker Windows
+--
+[source, cli]
+----
+C:\datamigrator\upgrade.log
+----
+--
+====
+. En cas d'échec de la mise à niveau, le système revient automatiquement à la version précédente et l'interface utilisateur affiche l'état de la mise à niveau comme *Failed*.
++
+Veuillez consulter les journaux Ansible, puis contacter le support NetApp et joindre les journaux Ansible à votre communication.
+
+

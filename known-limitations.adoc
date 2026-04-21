@@ -1,0 +1,126 @@
+---
+sidebar: sidebar 
+permalink: known-limitations.html 
+keywords: known, limitations, nfs limits, smb limits, worker sizing, migration restrictions 
+summary: Comprendre les limitations connues de NetApp Data Migrator pour vous aider à rendre vos activités de migration plus efficaces. 
+---
+= Limitations connues de NetApp Data Migrator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Les limitations et fonctionnalités de migration NFS et SMB qui ne fonctionnent pas ou fonctionnent mal avec cette version sont répertoriées ici. Lisez attentivement ces limitations.
+
+
+
+== Limitations de découverte et de migration NFS et SMB
+
+[cols="1,2,2a"]
+|===
+| Description | NFS | SMB 
+
+
+| Nombre de chemins d'exportation pouvant s'exécuter simultanément | 4  a| 
+2
+
+
+
+| Nombre maximal de fichiers dans un répertoire | 1 million  a| 
+1 million
+
+
+
+| Dimensionnement des workers | Processeur quadricœur, 16 Go de mémoire  a| 
+Processeur à 16 cœurs, 64 Go de mémoire
+
+
+
+| Dimensionnement du plan de contrôle | Processeur à 8 cœurs, 64 Go de mémoire  a| 
+Processeur à 8 cœurs, 64 Go de mémoire
+
+
+
+| Nombre maximal de fichiers dans un chemin d'exportation | 20 millions  a| 
+20 millions
+
+|===
+
+
+== Limitations des fonctionnalités
+
+[cols="1,2a"]
+|===
+| Description | Limites 
+
+
+| Prise en charge active de la destination  a| 
+NetApp Data Migrator ne prend pas en charge une destination active (lorsqu'un stockage cible est activement utilisé ou en cours d'écriture avant la bascule).
+
+
+
+| fichiers sensibles à la casse  a| 
+Pour SMB, NetApp Data Migrator ne migre qu'un seul des fichiers dont la casse diffère, créés via NFS dans un dossier, et signale une erreur pour l'autre fichier. Cela se produit car SMB ne peut pas accepter les deux fichiers. Vous pouvez effectuer une analyse via NFS pour identifier ces fichiers sensibles à la casse.
+
+
+
+| Accessibilité du réseau  a| 
+NetApp recommande d'utiliser NetApp Data Migrator dans les réseaux privés.
+
+
+
+| ACL NFSv4  a| 
+NetApp Data Migrator n'applique pas les listes de contrôle d'accès (ACL) avec NFSv4, il applique uniquement les autorisations de base sur la destination. Ce comportement est similaire à NFSv3.
+
+
+
+| Migration de protocole - Type  a| 
+La migration entre protocoles n'est pas prise en charge, par exemple de NFS vers SMB.
+
+
+
+| Migration de protocole - Version  a| 
+La migration entre versions au sein d'un même protocole n'est pas prise en charge, par exemple, de NFSv3 à NFSv4.
+
+
+
+| Autorisations SMB  a| 
+NetApp Data Migrator ne prend pas en charge la migration des listes de contrôle d'accès système (SACL) SMB (autorisations d'audit).
+
+
+
+| Fichiers SMB avec espaces de fin  a| 
+Lors de la migration via SMB, NetApp Data Migrator signale une erreur pour les fichiers dont le nom contient des espaces à la fin, car SMB n'autorise pas ces noms de fichiers.
+
+
+
+| fichiers spéciaux SMB  a| 
+NetApp Data Migrator détecte les redirections (liens symboliques, liens physiques, points de jonction, flux de données alternatifs (ADS) et points de montage de volume) et les signale après leur détection. La migration des flux ADS, des fichiers épars et des redirections SMB n'est pas prise en charge.
+
+
+
+| Sécurité  a| 
+NetApp Data Migrator utilise des certificats auto-signés pour chiffrer le trafic web avec SSL/TLS.
+
+
+
+| Fichiers épars  a| 
+Lors de la migration, les fichiers épars deviennent des fichiers de taille normale, NetApp Data Migrator ne préserve pas leur structure éparse. Vous avez besoin d'espace de stockage supplémentaire pour ces fichiers.
+
+
+
+| fichiers système  a| 
+NetApp Data Migrator ne peut pas migrer les fichiers générés par le système et appartenant à la source.
+
+
+
+| interface utilisateur  a| 
+NetApp Data Migrator est optimisé pour les navigateurs Google Chrome et Firefox utilisant une résolution d'écran de 1920 x 1080 ; les écrans mobiles ne sont pas pris en charge.
+
+
+
+| Déploiement de workers Windows  a| 
+Le serveur Windows doit appartenir au même domaine racine que la destination.
+
+|===

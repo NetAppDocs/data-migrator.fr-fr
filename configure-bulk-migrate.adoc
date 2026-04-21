@@ -1,0 +1,153 @@
+---
+sidebar: sidebar 
+permalink: configure-bulk-migrate.html 
+keywords: bulk migrate, data migration, source mapping, destination mapping, export paths 
+summary: 'Utilisez la fonction de migration en masse dans NetApp Data Migrator pour transférer de grands volumes de données d"une source vers un emplacement de destination.' 
+---
+= Effectuez la migration des données à l'aide de NetApp Data Migrator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Utilisez les fonctionnalités de migration en masse de NetApp Data Migrator pour transférer de grands volumes de données d'une source vers un emplacement de destination.
+
+
+
+== Étape 1 : Configurer la migration en masse dans NetApp Data Migrator
+
+Vous devez définir les serveurs pour la migration en masse avant de pouvoir utiliser les fonctionnalités de Bulk Migrate.
+
+.Étapes
+. Connectez-vous à NetApp Data Migrator.
+. Sélectionnez *Serveurs de stockage* > *Serveurs de fichiers*.
+. Sélectionnez le *Nom du serveur de fichiers* pour lequel vous souhaitez créer la tâche.
+. Sélectionnez *Bulk Migrate*.
+
+
+
+
+== Étape 2 : Ajouter les mappages source et destination
+
+Ajoutez des mappages source et destination pour spécifier les chemins d'exportation source et destination de votre migration.
+
+.Étapes
+. Sélectionnez le chemin d'exportation dans la source que vous souhaitez migrer.
+. Vous pouvez également sélectionner *Ajouter un répertoire source* si vous souhaitez effectuer une migration au niveau du répertoire.
++
+Après avoir sélectionné *Add Source Directory*, la vue de l'explorateur de répertoires apparaît. Cette vue affiche la liste des répertoires au niveau racine. Vous pouvez soit naviguer jusqu'au répertoire requis, soit copier et coller directement le chemin du répertoire requis dans la barre de recherche de la fenêtre de l'explorateur pour accéder à ce dossier.
+
+. Après avoir sélectionné le répertoire source, sélectionnez le serveur de fichiers de destination et le chemin d'exportation de destination.
+. Vous pouvez également sélectionner le répertoire dans le chemin d’exportation de destination.
++
+Si vous ne sélectionnez pas de répertoire dans le chemin d'exportation de destination, la migration s'effectue à la racine du chemin d'exportation sélectionné.
+
+. Après avoir sélectionné les chemins source et de destination, sélectionnez *Ajouter un mappage* pour ajouter le mappage sélectionné. Vous pouvez créer plusieurs mappages pour différents chemins d'exportation et répertoires.
++
+NetApp Data Migrator vous empêche de sélectionner un mappage ayant une relation parent ou enfant avec un mappage existant. Cela évite les conflits lors de la migration.
+
+. Vous pouvez également supprimer ou modifier un mappage en sélectionnant les options *Modifier* ou *Supprimer*.
+. Après avoir ajouté les mappages, sélectionnez *Proceed*.
+
+
+
+
+== Étape 3 : Personnaliser la tâche de migration en masse
+
+Vous pouvez sélectionner différents paramètres sur la page *Options* pour personnaliser votre tâche Bulk Migrate, en fonction de vos besoins.
+
+[cols="1,2a"]
+|===
+| Option | Description 
+
+
+| Modèles de chemins exclus  a| 
+Définit les chemins d'accès ou répertoires spécifiques à exclure du traitement. Cela permet d'optimiser le stockage et les performances en ignorant les fichiers inutiles.
+
+* Vous pouvez saisir plusieurs modèles de chemin, un par ligne.
+* Vous pouvez saisir un caractère générique (`*` pour sélectionner plusieurs fichiers ou dossiers.
+* Exemples d'exclusions :
++
+** `*/snapshots/*`: Exclut tous les fichiers et dossiers contenus dans n'importe quel répertoire de snapshots
+** `*/logs/*`: Exclut les fichiers journaux
+** `*/tmp/*`: Exclut les fichiers temporaires
+
+
+
+
+
+
+| Planification de la synchronisation incrémentale  a| 
+Configure la fréquence de synchronisation incrémentielle des données. Cela garantit que seules les modifications intervenues depuis la dernière synchronisation sont mises à jour, ce qui améliore l'efficacité de la migration et réduit le temps de traitement.
+
+* Sélectionnez *Désactivé* pour désactiver la synchronisation incrémentielle.
+* Sélectionnez *Définir la planification* pour spécifier une fréquence de synchronisation. Vous pouvez choisir de synchroniser les données toutes les heures, tous les jours ou toutes les semaines.
+* Sélectionnez *Expression Cron* si vous êtes un utilisateur avancé et que vous souhaitez définir une planification de synchronisation personnalisée à l'aide d'une expression cron, pour un contrôle plus précis du moment de la synchronisation.
+
+
+
+
+| Migrer le fichier  a| 
+Sélectionne les fichiers à migrer en fonction de leur date de dernière modification.
+
+* Sélectionnez *Tout* pour migrer tous les fichiers, quelle que soit leur date de modification.
+* Sélectionnez *Exclure les fichiers antérieurs à (UTC)* pour exclure les fichiers antérieurs à une date spécifiée.
+
+
+
+
+| Préserver l'a-time (temps d'accès)  a| 
+Conserve l'horodatage d'accès aux fichiers d'origine, au lieu de le mettre à jour à l'heure de la migration.
+
+
+
+| Préserver les autorisations  a| 
+Conserve les permissions d'origine des fichiers et répertoires sources sur la destination.
+
+* Sélectionnez *Activé* pour conserver les autorisations d'origine, y compris le propriétaire, le groupe et les droits d'accès (listes de contrôle d'accès pour SMB, bits de mode pour NFS) d'une source à une destination.
+* Sélectionnez *Désactivé* pour ignorer la conservation des autorisations. NetApp Data Migrator migre les fichiers avec les autorisations de destination par défaut, ce qui est utile lors de la migration entre des systèmes de fichiers incompatibles.
+
+
+
+
+| Ignorer les fichiers modifiés au cours des dernières  a| 
+Spécifie les fichiers d'une fenêtre temporelle (en minutes, heures ou jours) à exclure de votre migration. Cela permet d'éviter les incohérences de données en garantissant que les fichiers en cours de modification ne sont pas transférés pendant la mise à jour.
+
+
+
+| Téléchargement du mappage GID/UID  a| 
+Téléverse un fichier de correspondance d'identifiants de groupe (GID) ou d'identifiants utilisateur (UID) afin de maintenir la propriété correcte des fichiers lors de la migration. Le fichier téléversé doit respecter le format spécifié dans le modèle fourni.
+
+. Sélectionnez *Télécharger le modèle* pour télécharger un exemple de format de fichier.
+. Sélectionnez *Choisir un fichier* pour sélectionner le fichier de mappage sur votre système local.
+. Sélectionnez *Téléverser* pour appliquer le mappage.
+
+
+
+
+| Téléversement du mappage SID  a| 
+Téléverse un fichier de correspondance d'identificateurs de sécurité (SID). La correspondance SID garantit la conservation exacte des autorisations des utilisateurs et des groupes lors de la migration ou de la synchronisation de fichiers entre systèmes. Le fichier téléversé doit respecter le format spécifié dans le modèle fourni pour téléchargement.
+
+. Sélectionnez *Télécharger le modèle* pour télécharger un exemple de format de fichier.
+. Sélectionnez *Choisir un fichier* pour sélectionner le fichier de mappage sur votre système local.
+. Sélectionnez *Téléverser* pour appliquer le mappage.
+
+
+|===
+Après avoir sélectionné vos options, sélectionnez *Procéder* pour ouvrir la page *Vérifier et soumettre*.
+
+
+
+== Étape 4 : Examiner et soumettre
+
+Vérifiez vos paramètres, puis procédez à une migration en masse.
+
+.Étapes
+. Consultez l'état de la pré-vérification de votre tâche. Assurez-vous que le chemin source contient les données correctes et confirmez que le chemin de destination dispose d'un espace de stockage suffisant et des autorisations de contrôle d'accès nécessaires.
+. Sélectionnez *Soumettre* pour créer une nouvelle tâche de migration.
++
+Le message de confirmation *La tâche Bulk Migrate a été créée* s'affiche.
+
+. Sélectionnez le lien *View Job Listing* à côté du message de notification pour ouvrir la page *Job Config List* où votre nouvel emploi est répertorié.
+

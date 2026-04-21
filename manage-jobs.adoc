@@ -1,0 +1,291 @@
+---
+sidebar: sidebar 
+permalink: manage-jobs.html 
+keywords: job management, discovery jobs, migration jobs, cutover jobs, job runs 
+summary: Utilisez les fonctionnalités de gestion des tâches dans NetApp Data Migrator pour lancer et suivre les tâches de découverte, de migration et de basculement, ainsi que leurs exécutions. 
+---
+= Gérer les tâches et leurs exécutions dans NetApp Data Migrator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Utilisez les fonctionnalités de gestion des tâches dans NetApp Data Migrator pour lancer et suivre vos tâches et exécutions de *Discovery*, *Migration* et *Cutover*.
+
+
+NOTE: N’exécutez pas simultanément les tâches de migration et de basculement. Assurez-vous qu’une seule tâche soit active à la fois.
+
+
+
+== Afficher la liste des configurations de tâches
+
+La page *Liste des configurations de tâches* offre une vue d'ensemble complète de toutes les tâches liées à la migration. Utilisez cette page pour surveiller et gérer l'état et la progression des tâches de *Discovery*, *Migration* et *Cutover*.
+
+.Étapes
+. Connectez-vous à NetApp Data Migrator.
+. Sélectionnez *Jobs* > *Job Config List*.
++
+Le tableau *Offres d'emploi* s'affiche, qui inclut les informations suivantes :
+
++
+** *Source* : Emplacement du serveur de fichiers source.
+** *Destination* : Le serveur de fichiers de destination et les détails du chemin d’exportation pour les tâches de migration.
+** *Protocole* : Le protocole utilisé par la tâche (NFS ou SMB).
+** *Prochaine exécution* : La prochaine heure d’exécution planifiée (le cas échéant).
+** *Exécutions* : Le nombre de fois où la tâche a été exécutée.
+** *Type* : Le type de tâche (Découverte, Migration ou Basculement).
+** *Statut* : L’état actuel d’une tâche peut être Actif ou Inactif. Les tâches utilisant des chemins d’exportation manuels dont le statut est invalide ou désactivé deviennent automatiquement inactives. Consultez link:manage-file-servers.html["Ajouter et gérer des serveurs de fichiers"] pour plus de détails.
+** *Date de mise à jour* : Horodatage de la mise à jour du job.
++
+Les tâches utilisant des chemins d'exportation manuels ou le fichier de chemins d'exportation sont ultérieurement rechargées. Toutes les tâches précédemment exécutées et associées à un chemin désormais invalide ou désactivé deviennent automatiquement inactives.
+
+
+
+. Sélectionnez *Filtres* pour trier les tâches dans le tableau Jobs Listings. Vous pouvez choisir une combinaison de filtres selon les options suivantes :
++
+** Source
+** Destination
+** Protocole
+** Type
+** Statut
+
+
+. Sélectionnez *Tout effacer* pour supprimer les filtres déjà appliqués à vos offres d'emploi.
+
+
+
+
+== Activer ou désactiver un job
+
+Dans le tableau des offres d'emploi, vous pouvez activer ou désactiver un travail.
+
+.Étapes
+. Activer une tâche :
++
+.. Sélectionnez *Jobs* > *Job Config List*.
+.. Dans le tableau des offres d'emploi, sélectionnez le menu d'actions à côté du job que vous souhaitez activer.
+.. Sélectionnez *Activer*. Le statut de la tâche passe à Actif.
+
+
+. Désactiver une tâche :
++
+.. Sélectionnez *Jobs* > *Job Config List*.
+.. Dans le tableau des offres d'emploi, sélectionnez le menu d'actions à côté de l'offre que vous souhaitez désactiver.
+.. Sélectionnez *Désactiver*. L'état de la tâche passe à Inactive et son exécution s'interrompt jusqu'à ce que vous la réactiviez.
+
+
+
+
+
+
+== Modifier les configurations de travail
+
+.Étapes
+. Sélectionnez *Jobs* > *Job Config List*.
+. <<view-job-details,Ouvrez la page Détails du travail>> pour le poste que vous souhaitez modifier.
+. Sélectionnez *Afficher/Modifier la configuration*.
+. Modifier la configuration de la tâche :
++
+[role="tabbed-block"]
+====
+.Emploi de découverte
+--
+** Ajouter ou supprimer des modèles de chemins exclus
+** Planifier une exécution de tâche
+
+
+--
+.Tâche de migration
+--
+** Modifier n'importe quelle option de tâche
+** Ajouter ou supprimer des mappages
+** Planifier une exécution de tâche
+
+
+--
+====
+. Sélectionnez *Enregistrer*. La nouvelle configuration s'appliquera aux exécutions futures des tâches.
+
+
+
+NOTE: Modifier la configuration, par exemple en désactivant la conservation des autorisations, après la migration de référence peut entraîner un état incohérent lors des migrations suivantes. Au lieu de modifier la configuration, vous devez supprimer la tâche en cours et en démarrer une nouvelle.
+
+
+
+== Réexécuter les fichiers et répertoires ayant généré des erreurs
+
+Si une tâche de migration s'achève avec des erreurs dues à des problèmes transitoires tels que des délais d'attente réseau ou des problèmes d'autorisation, vous pouvez utiliser la fonction de nouvelle tentative pour retraiter uniquement les éléments ayant échoué sans avoir à relancer l'intégralité de la migration.
+
+.Étapes
+. Sélectionnez *Jobs* > *Job Config List*.
+. Dans le tableau *Liste des tâches*, sélectionnez le menu d'actions en regard de la tâche comportant des éléments ayant échoué.
+. Sélectionnez *Détails* > *Réessayer les erreurs récentes* > *Procéder à la nouvelle tentative* pour démarrer l'opération de nouvelle tentative.
+
+
+
+
+== Supprimer un travail
+
+.Étapes
+. Sélectionnez *Jobs* > *Job Config List*.
+. Dans le tableau *Offres d'emploi*, sélectionnez le menu d'actions à côté de l'emploi que vous souhaitez supprimer.
+. Sélectionnez *Supprimer* > *Supprimer*.
++
+
+NOTE: Vous ne pouvez supprimer une tâche que s'il n'y a pas d'exécution en cours.
+
+
+
+
+
+== Voir les détails de l'offre
+
+Depuis la page *Liste de configuration des tâches*, vous pouvez accéder à la page *Détails de la tâche* pour consulter des informations supplémentaires sur chaque tâche, telles que :
+
+* Type de tâche (Découverte, Migration ou Basculement)
+* Nombre de fichiers et de répertoires découverts
+* Temps écoulé
+* Données découvertes
+* Configuration des tâches
+
+
+.Étapes
+. Sélectionnez *Jobs* > *Job Config List*.
+. Dans le tableau *Offres d'emploi*, sélectionnez le menu d'actions à côté d'un emploi, puis sélectionnez *Détails*.
+
+
+
+
+== Afficher l'historique des tâches
+
+Sur la page *Détails de la tâche*, le tableau *Historique d'exécution* vous fournit des informations sur les exécutions précédentes et l'état de la tâche.
+
+Les types de statut des tâches de migration et de découverte comprennent :
+
+* *Prêt* : Une tâche est programmée pour s’exécuter.
+* *En cours d'exécution* : Une tâche est en cours d'exécution.
+* *En pause* : L’exécution d’une tâche a été suspendue manuellement ou par NetApp Data Migrator. Par exemple, une tâche peut avoir le statut « en pause » si un nœud de calcul tombe en panne pendant l’exécution de la tâche.
+* *Terminé* : Un travail est terminé.
+* *Erreur* : L’exécution d’un job a déclenché une erreur fatale.
+* *Échec* : Si un worker se déconnecte pendant l’exécution d’une tâche, celle-ci peut passer à l’état d’échec.
+
+
+Les types de statut de tâche de basculement comprennent :
+
+* *Bloqué* : La tâche est en attente d’une réponse de l’utilisateur.
+* *Rejeté* : Le travail a été examiné et rejeté par un utilisateur.
+* *Approuvé* : La tâche a été examinée et approuvée par un utilisateur.
+* *Arrêté* : La tâche a cessé de s’exécuter.
+
+
+
+
+== Gérer les opérations d'exécution des tâches
+
+Depuis la page *Détails de la tâche*, vous pouvez gérer les opérations *Démarrer*, *Arrêter*, *Mettre en pause* et *Reprendre* d'une tâche. Utilisez la fonction *Mettre en pause* pour interrompre temporairement une tâche en cours d'exécution, sans l'annuler. Vous pouvez ensuite reprendre la tâche à l'endroit où elle a été mise en pause. Il s'agit d'une fonctionnalité utile dans les scénarios où vous devez libérer des ressources système ou résoudre des problèmes sans perdre la progression.
+
+.Étapes
+. Sur la page *Détails de la tâche*, dans le tableau *Historique d'exécution*, sélectionnez le menu d'actions à côté d'une tâche en cours d'exécution.
+. Mettre en pause ou reprendre une tâche :
++
+.. Sélectionnez *Pause*.
+.. Pour reprendre l'exécution de la tâche, sélectionnez *Reprendre*.
++
+L'état de la tâche passe à *En cours d'exécution* et la tâche reprend son exécution à partir de l'étape où elle avait été interrompue.
+
+
+
+. Arrêter ou démarrer une exécution de tâche :
++
+Vous pouvez utiliser l'option « Arrêter » pour mettre fin définitivement à l'exécution d'un job en cours. Cette action est utile lorsqu'un job n'est plus nécessaire. Vous ne pouvez pas reprendre un job arrêté, mais vous avez la possibilité de démarrer un nouveau job depuis le début.
+
++
+.. Sélectionnez *Arrêter*.
++
+L'état d'exécution de la tâche passe à *Arrêté*.
+
+.. Pour lancer une nouvelle exécution de tâche, sélectionnez *Adhoc Run*.
++
+L'état d'exécution de la tâche passe à *En cours d'exécution*.
+
+
+
+
+
+
+
+== Accéder aux détails d'exécution de la tâche
+
+Dans le tableau *Historique des exécutions*, accédez à la page *Détails de l'exécution des tâches* où vous pouvez consulter des informations supplémentaires sur vos exécutions de tâches.
+
+.Étapes
+. Sur la page *Détails de la tâche*, dans le tableau *Historique d'exécution*, sélectionnez le menu d'actions à côté d'une exécution de tâche.
+. Sélectionnez *Détails* pour afficher la page *Détails de l'exécution de la tâche*, qui comprend les informations suivantes :
++
+** *Découverte/Migration* : Le type et le statut d’exécution de la tâche.
+** *Fichiers* : Le nombre de fichiers trouvés lors du processus de découverte.
+** *Répertoires* : Le nombre de répertoires trouvés lors du processus de découverte.
+** *Durée écoulée* : Combien de temps le processus de découverte a duré.
+** *Données découvertes* : Taille totale des fichiers découverts.
+** *Travailleurs* : Le nombre de travailleurs affectés à la tâche.
+** *Tâches* : Le nombre de tâches en cours d’exécution.
+** *Indicateurs d'état des tâches*:
++
+*** *En attente* : Le nombre de tâches en attente d’exécution.
+*** *En cours* : Le nombre de tâches actuellement en cours.
+*** *Terminé* : Le nombre de tâches qui ont été menées à bien.
+*** *Errored* : Nombre de tâches ayant rencontré des problèmes lors de leur exécution.
+
+
+** *Nom du job* : Le nom attribué au job.
+** *Chemin source* : Chemin d’accès au fichier utilisé pour la découverte de données.
+** *Protocole* : Le protocole utilisé pour la découverte (NFS ou SMB).
++
+La vignette en bas à droite de la page *Détails de l'exécution de la tâche* indique le nombre d'erreurs survenues lors de la migration (le cas échéant). Sélectionnez *Tout afficher* pour accéder à la page *Erreurs*, où vous pouvez trouver des informations plus détaillées sur ces erreurs.
+
+
+
+. Générez des rapports détaillés vous fournissant des informations sur les indicateurs d'exécution des tâches, notamment le nombre de fichiers, leur statut, les erreurs et la durée d'exécution. Vous pouvez utiliser ces rapports à des fins d'analyse ou d'audit.
++
+** Sélectionnez *Rapport de découverte* > *Aperçu* pour afficher un histogramme des données du rapport de tâches.
+** Sélectionnez *Télécharger au format CSV* pour exporter un rapport au format CSV, que vous pouvez analyser à l'aide d'une application de tableur.
+** Sélectionnez *Télécharger au format PDF*. Cette option est idéale pour le partage de documents.
+** Sélectionnez *Afficher les journaux* pour consulter ou télécharger les fichiers journaux à l'aide de Grafana.
+
+
+
+
+
+
+== Afficher l'activité de migration
+
+La page « Activité de migration » affiche les dix fichiers les plus anciens en cours de migration. Elle indique également le nombre total de fichiers en cours et propose de télécharger un fichier CSV contenant la liste complète de ces fichiers.
+
+.Étapes
+. Dans le tableau *Historique d'exécution*, sélectionnez *Détails d'exécution de la tâche* pour une tâche en cours.
+. Sélectionnez *Activité de migration*.
+
+
+
+
+== Générer un rapport d'erreur de tâche
+
+Vous pouvez générer un rapport d'erreur pour les tâches ayant le statut *Erreur* ou pour une exécution de tâche précédente. Un rapport d'erreur peut vous aider à comprendre pourquoi une erreur s'est produite.
+
+.Étapes
+. Générer un rapport d'erreur pour les tâches ayant le statut *Errored* :
++
+.. Sur la page *Détails de la tâche*, dans le volet Erreurs, sélectionnez *Afficher tout*.
+.. Sélectionnez *Générer un rapport d'erreurs* pour télécharger les détails des erreurs survenues lors de la dernière exécution de la tâche.
+
+
+. Générer un rapport d'erreurs pour une exécution de tâche précédente :
++
+.. Sur la page *Détails de la tâche*, dans le tableau *Historique d'exécution*, sélectionnez le menu d'actions à côté de l'exécution de la tâche pour laquelle vous souhaitez générer un rapport d'erreur.
+.. Sélectionnez *Détails*.
+.. Sur la page *Détails de la tâche*, dans le panneau *Erreurs*, sélectionnez *Tout afficher*.
+.. Sélectionnez *Générer un rapport d'erreurs* pour télécharger les détails des erreurs dans l'exécution de la tâche que vous avez sélectionnée.
+
+
+

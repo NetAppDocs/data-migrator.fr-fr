@@ -1,0 +1,184 @@
+---
+sidebar: sidebar 
+permalink: troubleshoot.html 
+keywords: troubleshooting, kubectl, openbao, application access, diagnostic commands 
+summary: Utilisez les étapes de dépannage et les commandes de référence pour vous aider à résoudre les problèmes NetApp Data Migrator. 
+---
+= Dépanner NetApp Data Migrator
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Si vous rencontrez des problèmes lors de l'utilisation de NetApp Data Migrator, ces étapes de dépannage et commandes de référence peuvent vous être utiles.
+
+
+
+== Échec du montage SMB lors de l'utilisation du nom de l'hôte
+
+Lors de la configuration d'une migration au niveau du répertoire, le montage SMB peut échouer si le nom de l'hôte du serveur de fichiers SMB est fourni sous forme d'URL. Cela peut se produire lorsque la machine virtuelle (VM) du plan de contrôle ne dispose pas de la configuration DNS correcte pour résoudre le nom de l'hôte du serveur de fichiers SMB. L'échec du montage peut s'afficher avec une erreur similaire à  `mount failed: Resource temporarily unavailable`.
+
+Vous pouvez contourner ce problème en utilisant l'adresse IP du serveur de fichiers SMB au lieu du nom de l'hôte dans la configuration de migration.
+
+.Étapes
+. Résoudre le nom d'hôte en une adresse IP :
++
+[source, cli]
+----
+nslookup
+----
+. Configurez le champ nom de l'hôte du serveur de fichiers SMB en utilisant l'adresse IP résolue.
+. Réessayez la configuration de migration au niveau du répertoire.
++
+Après avoir basculé vers l'adresse IP, l'opération de montage devrait réussir.
+
+
+
+
+
+== Dépannage de l'accès à l'application
+
+Toutes les informations d'identification sont gérées dans OpenBao.
+
+Dans les étapes suivantes, remplacez  `<IP_ADDRESS>` par l'adresse IP de votre machine virtuelle (VM).
+
+.Étapes
+. Récupérez le jeton racine OpenBao. Utilisez SSH pour vous connecter au serveur du plan de contrôle depuis Bastion Connect via le portail Azure :
++
+[source, cli]
+----
+sudo su - datamigrator
+cat /opt/datamigrator/openbao/cluster-keys.json
+----
+. Connectez-vous à l’interface utilisateur OpenBao : utilisez  `https://IP_ADDRESS/ui/` et saisissez le jeton racine pour vous connecter.
+. Accédez aux secrets.
+. Interface utilisateur de Keycloak : `https://IP_ADDRESS/keycloak/`
+. NetApp Data Migrator UI : `https://IP_ADDRESS/`
++
+Connectez-vous à l’interface utilisateur NetApp Data Migrator en utilisant le nom d’utilisateur et le mot de passe par défaut.
+
+. Interface utilisateur temporelle : `https://IP_ADDRESS/temporal/ui/`
+. Connexion à Postgres : Utilisez l’adresse IP multipass pour vous connecter à la base de données Postgres. Récupérez le nom d’utilisateur et le mot de passe depuis OpenBao.
++
+Clés : POSTGRES_DMADMIN_USER et POSTGRES_DMADMIN_PASSWORD
+
+
+
+
+
+== Utilisez les commandes de référence "kubectl"
+
+* Pour obtenir les pods dans l'espace de noms datamigrator :
++
+[source, cli]
+----
+kubectl get pods -n datamigrator
+----
+* Pour obtenir les journaux d'un pod dans l'espace de noms datamigrator :
++
+[source, cli]
+----
+kubectl logs <podname> -n datamigrator
+----
+* Pour décrire un pod dans l'espace de noms datamigrator :
++
+[source, cli]
+----
+kubectl describe <podname> -n datamigrator
+----
+* Pour obtenir tous les espaces de noms :
++
+[source, cli]
+----
+kubectl get ns
+----
+* Pour obtenir les pods dans n'importe quel espace de noms :
++
+[source, cli]
+----
+kubectl get pods -n <NAMESPACE>
+----
+
+
+
+
+== Desceller OpenBao
+
+Si vous rencontrez un problème où OpenBao est scellé, suivez ces étapes pour le desceller.
+
+.Étapes
+. Utilisez SSH pour vous connecter au serveur du plan de contrôle via Bastion connect.
+. remplacez OPENBAO_UNSEAL_KEY par votre clé :
++
+[source, cli]
+----
+sudo su - datamigrator
+export OPENBAO_UNSEAL_KEY=`jq -r ".unseal_keys_b64[]" /opt/datamigrator/openbao/cluster-keys.json`
+kubectl exec openbao-0 -n openbao -- bao operator unseal $OPENBAO_UNSEAL_KEY
+kubectl exec openbao-1 -n openbao -- bao operator unseal $OPENBAO_UNSEAL_KEY
+kubectl exec openbao-2 -n openbao -- bao operator unseal $OPENBAO_UNSEAL_KEY
+----
+
+
+
+
+== Dépannage de l'accès aux machines virtuelles Azure
+
+Vous devriez pouvoir créer et vous connecter à votre machine virtuelle Azure. Toutefois, si vous rencontrez des problèmes, essayez de redémarrer votre machine virtuelle ou de réinitialiser votre configuration SSH.
+
+Redémarrez votre machine virtuelle::
++
+--
+.Étapes
+. Accédez à votre portail Azure.
+. Accédez à votre machine virtuelle et sélectionnez *Redémarrer*.
+
+
+--
+Réinitialiser la configuration SSH::
++
+--
+Commencez par consulter les instructions fournies dans ce link:https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/linux/troubleshoot-ssh-connection["Guide de dépannage Microsoft"^]. Cependant, des problèmes peuvent parfois survenir lors de l'ouverture du portail SSH Bastion, que vous pourrez peut-être résoudre de la manière suivante.
+
+.Étapes
+. Accédez au plan de contrôle de votre machine virtuelle Azure.
+. Sélectionnez *Aide*.
+. Sélectionnez *Réinitialiser le mot de passe*.
+. Dans le menu Mode, sélectionnez *Ajouter une clé publique SSH*.
+. Pour le nom d'utilisateur, saisissez ubuntu.
+. Pour la source de la clé publique, choisissez *Utiliser une clé existante stockée dans Azure*.
+. Pour la clé enregistrée, choisissez *Sélectionnez votre clé existante créée*.
+. Sélectionnez *Mettre à jour*.
+
+
+--
+
+
+
+
+== Un processus Windows ne parvient pas à changer d'utilisateur sur le serveur de fichiers SMB
+
+Lorsqu'un poste de travail Windows tente de se connecter à un serveur de fichiers SMB en utilisant des informations d'identification différentes de celles utilisées précédemment pour ce même serveur de fichiers, le message d'erreur suivant peut apparaître :
+
+`System error 1219: Multiple connections to a server or shared resource by the same user, using more than one user name, are not allowed.`
+
+Cela se produit car Windows n'autorise pas plusieurs connexions simultanées à une même ressource réseau avec des informations d'identification différentes. Même si la connexion précédente est inactive, elle peut encore être mise en cache ou conservée par le système.
+
+Suivez ces étapes pour résoudre ce problème :
+
+. Liste des connexions SMB existantes :
++
+[source, cli]
+----
+net use
+----
+. Supprimez toute connexion existante au serveur cible :
++
+[source, cli]
+----
+net use <share> /delete
+----
+. Redémarrez pour effacer les informations d'identification ou sessions mises en cache restantes.
+. Reconnectez-vous en utilisant vos identifiants souhaités.
+
