@@ -11,7 +11,7 @@ summary: Découvrez comment installer le plan de contrôle NetApp Data Migrator 
 
 
 [role="lead"]
-Vous devez installer un plan de contrôle et des workers pour exécuter des tâches de migration NFS et SMB à l'aide de NetApp Data Migrator.
+NetApp Data Migrator se compose d'un plan de contrôle et d'un ou plusieurs workers qui travaillent ensemble pour effectuer des migrations des données à l'aide des protocoles de transport NFS et SMB.
 
 * *Plan de contrôle* : Le plan de contrôle sert de couche centrale de gestion et de contrôle. Vous déployez le plan de contrôle sur une machine virtuelle Linux (VM), puis vous déployez les workers.
 * *Workers* : Les workers sont des machines virtuelles qui effectuent la migration des données. Vous pouvez déployer plusieurs workers en fonction de l’échelle et de vos besoins. Le type de worker dépend du protocole :
@@ -22,9 +22,9 @@ Vous devez installer un plan de contrôle et des workers pour exécuter des tâc
 
 
 
-Commencez par déployer la machine virtuelle (VM) du plan de contrôle et la VM de travail Linux à l'aide des services AWS, Azure ou Google Cloud, ou à l'aide de modèles Open Virtual Appliance (OVA). Vous téléchargez les images NetApp Data Migrator nécessaires au déploiement depuis le site de support NetApp.
+Commencez par déployer la machine virtuelle (VM) du plan de contrôle et la VM de travail Linux à l'aide des services AWS, Azure ou Google Cloud, ou à l'aide de modèles Open Virtual Appliance (OVA). Vous téléchargez les images NetApp Data Migrator requises pour le déploiement depuis le site de support NetApp.
 
-Après le déploiement, vous créez les machines virtuelles du plan de contrôle et des nœuds de calcul pour accéder à NetApp Data Migrator. Vous créez la machine virtuelle du plan de contrôle et la machine virtuelle Linux pour les nœuds de calcul à partir des images déployées. Vous créez la machine virtuelle Windows pour les nœuds de calcul à l'aide du programme d'installation Windows Worker, que vous téléchargez depuis le site de support NetApp.
+Après le déploiement, créez la machine virtuelle du plan de contrôle et les machines virtuelles de travail pour accéder à NetApp Data Migrator. Créez la machine virtuelle du plan de contrôle et la machine virtuelle de travail Linux à l'aide des images déployées. Créez la machine virtuelle de travail Windows à l'aide du programme d'installation Windows Worker, que vous téléchargez depuis le site de support NetApp. Vous pouvez ensuite, si vous le souhaitez, valider la machine virtuelle du plan de contrôle ou accéder à l'interface utilisateur NetApp Data Migrator et vous connecter au plan de contrôle et aux machines virtuelles de travail.
 
 .Et ensuite ?
-Après avoir appris à installer NetApp Data Migrator, vous pouvez link:register-for-account.html["créer un compte"].
+Après avoir pris connaissance de l'installation de NetApp Data Migrator, vous pouvez link:register-for-account.html["créer un compte"] sur le NetApp Support Site si vous êtes un nouveau client ou procéder à link:deploy-control-plane-and-linux-workers.html["Déployer le plan de contrôle et les machines virtuelles de travail Linux"] si vous possédez déjà un compte.

@@ -63,11 +63,11 @@ Group 1065216673, Grouped object  --destination-container <YOUR_CONTAINER_NAME> 
 [source, cli]
 ----
 az image create \
-  --resource-group <YOUR_RESOURCE_GROUP> \
-  --name <YOUR_IMAGE_NAME> \
-  --source https://<YOUR_STORAGE_ACCOUNT>.blob.core.windows.net/<YOUR_CONTAINER_NAME>/<VHD_FILE_NAME>.vhd \
+  --resource-group <your_resource_group> \
+  --name <your_image_name> \
+  --source https://<your_storage_account>.blob.core.windows.net/<your_container_name>/<VHD_file_name>.vhd \
   --os-type linux \
-  --location <YOUR_AZURE_REGION>
+  --location <your_Azure_region>
 ----
 
 
@@ -86,8 +86,8 @@ Découvrez comment link:https://cloud.google.com/storage/docs/creating-buckets#c
 +
 [source, cli]
 ----
-gcloud storage buckets add-iam-policy-binding gs://<GCS_BUCKET> \
-  --member=serviceAccount:service-<PROJECT_NUMBER>@gcp-sa-vmmigration.iam.gserviceaccount.com \
+gcloud storage buckets add-iam-policy-binding gs://<Google_Cloud_Storage_bucket> \
+  --member=serviceAccount:service-<project_number>@gcp-sa-vmmigration.iam.gserviceaccount.com \
   --role=roles/storage.objectViewer
 ----
 +
@@ -97,7 +97,7 @@ Le compte de service a besoin de l'autorisation roles/storage.objectViewer pour 
 Lorsque l'API de migration de machines virtuelles est activée, Google Cloud provisionne automatiquement un compte de service au format suivant :
 
 +
-`service-<PROJECT_NUMBER>@gcp-sa-vmmigration.iam.gserviceaccount.com`
+`service-<project_number>@gcp-sa-vmmigration.iam.gserviceaccount.com`
 
 +
 *** `++ gcp-sa` est le compte de service Google Cloud
@@ -109,8 +109,8 @@ Lorsque l'API de migration de machines virtuelles est activée, Google Cloud pro
 +
 [source, cli]
 ----
-gcloud projects add-iam-policy-binding <PROJECT_ID> \
-  --member=user:<YOUR_EMAIL> \
+gcloud projects add-iam-policy-binding <project_ID> \
+  --member=user:<your_email> \
   --role=roles/vmmigration.admin
 ----
 +
@@ -120,7 +120,7 @@ Cela vous confère des autorisations d'administration pour la migration de machi
 
 . Obtenir et télécharger les fichiers image :
 +
-.. Téléchargez le fichier image du plan de contrôle `.tar.gz` et le fichier image du worker Linux `.tar.gz` depuis le link:https://mysupport.netapp.com/site/["Site de support NetApp"^].
+.. Téléchargez le fichier image du plan de contrôle `.tar.gz` et le fichier image du nœud de calcul Linux `.tar.gz` depuis le link:https://mysupport.netapp.com/site/["Site de support NetApp"^].
 .. Téléversez les  `.tar.gz` fichiers dans votre bucket Google Cloud Storage.
 
 
@@ -128,11 +128,12 @@ Cela vous confère des autorisations d'administration pour la migration de machi
 +
 [source, cli]
 ----
---source-file=gs://<GCS_BUCKET>/<IMAGE_NAME>.tar.gz \
-  --image-name=<IMAGE_NAME> \
-  --location=<REGION> \
-  --target-project=projects/<PROJECT_ID>/locations/global/targetProjects/<PROJECT_ID> \
-  --project=<PROJECT_ID>
+gcloud migration vms image-imports create <image_name> \
+ --source-file=gs://<Google_Cloud_Storage_bucket>/<image_name>.tar.gz \
+  --image-name=<image_name> \
+  --location=<region> \
+  --target-project=projects/<project_ID>/locations/global/targetProjects/<project_ID> \
+  --project=<project_ID>
 ----
 +
 Cette commande crée une nouvelle image de machine virtuelle Google Cloud Platform à partir de l'archive fournie dans la région spécifiée.
@@ -141,7 +142,7 @@ Cette commande crée une nouvelle image de machine virtuelle Google Cloud Platfo
 +
 [source, cli]
 ----
-gcloud migration vms image-imports list --location=<REGION> --project=<PROJECT_ID>
+gcloud migration vms image-imports list --location=<region> --project=<project_ID>
 ----
 
 

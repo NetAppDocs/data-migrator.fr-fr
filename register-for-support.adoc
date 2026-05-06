@@ -19,7 +19,7 @@ Enregistrez votre produit NetApp Data Migrator pour accéder à l’assistance N
 +
 Il s'agit d'un nombre à 20 chiffres, commençant par 975.
 
-. Allez à la link:https://register.netapp.com["NetApp support page d'inscription au site"^].
+. Allez à la link:https://register.netapp.com["NetApp Support Site page d'inscription"^].
 . Sélectionnez *Je ne suis pas un client enregistré NetApp*.
 . Renseignez les informations requises pour l'enregistrement du produit :
 +
