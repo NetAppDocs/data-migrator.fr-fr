@@ -62,6 +62,11 @@ Vous pouvez sélectionner différents paramètres sur la page *Options* pour per
 | Option | Description 
 
 
+| Convertir les autorisations héritées en autorisations explicites  a| 
+Lorsque vous activez cette option, toutes les autorisations héritées de la source sont écrites comme autorisations explicites sur la destination lors des migrations SMB au niveau du répertoire.
+
+
+
 | Modèles de chemins exclus  a| 
 Définit les chemins d'accès ou répertoires spécifiques à exclure du traitement. Cela permet d'optimiser le stockage et les performances en ignorant les fichiers inutiles.
 
