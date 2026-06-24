@@ -29,4 +29,4 @@ Vérifiez que le chemin d'exportation est correctement saisi et existe sur le se
 Vérifiez que vous avez bien saisi le répertoire de travail correct pour le chemin d’exportation sélectionné.
 
 .Pourquoi est-ce que je reçois une erreur de « permission d'écriture » sur le répertoire de travail ?
-Cette erreur se produit lorsque le chemin d'exportation et le répertoire de travail sont correctement spécifiés, mais que les autorisations d'écriture nécessaires ne sont pas accordées. Sans le bon accès en écriture, la vérification préalable du serveur de fichiers échouera et l'utilisateur ne pourra pas exécuter de tâches. Vérifiez que l'utilisateur rencontrant cette erreur dispose bien du droit d'écriture requis.
+Cette erreur se produit lorsque le chemin d'exportation et le répertoire de travail sont correctement spécifiés, mais que les autorisations d'écriture nécessaires ne sont pas accordées. Sans les droits d'écriture requis, la vérification préalable du serveur de fichiers échoue et vous ne pouvez pas exécuter de tâches. Vérifiez que l'utilisateur rencontrant l'erreur dispose des droits d'écriture requis.
