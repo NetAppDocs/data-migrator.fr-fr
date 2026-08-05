@@ -15,10 +15,12 @@ Les problèmes connus recensent les dysfonctionnements susceptibles de vous emp�
 
 
 
+[[configuration]]
 == Configuration
 
 
 
+[[access-permission-mismatch-when-using-sid-mapping]]
 === Incompatibilité des autorisations d'accès lors de l'utilisation du mappage SID
 
 NetApp Data Migrator peut signaler une  `Missing ACE in target` erreur lors de l'utilisation du mappage SID. Cette erreur indique une incompatibilité des autorisations d'accès entre les systèmes source et cible, car le mappage SID n'a pas été effectué au niveau racine.
@@ -59,6 +61,7 @@ rootdomain\user2
 ====
 
 
+[[bulk-migration-limitation-for-same-level-directories]]
 === Limitation de la migration en masse pour les répertoires de même niveau
 
 Lors de l'utilisation de la fonction de migration en masse, il est impossible de créer plusieurs tâches de migration simultanément pour des répertoires situés au même niveau dans l'arborescence source et de destination. Par exemple, des dossiers frères dans la même opération de partage pour une source et une destination. Toute tentative d'inclure de tels répertoires dans une configuration de migration en masse unique entraîne l'échec de la création de la tâche.
@@ -68,6 +71,7 @@ Créez des tâches de migration une à une pour les répertoires qui se trouvent
 
 
 
+[[directory-level-migration-inherited-permission-stamping]]
 === Migration au niveau du répertoire avec estampillage des autorisations héritées
 
 Lors des migrations au niveau des répertoires, les permissions héritées du répertoire racine sélectionné ne sont pas appliquées à la destination. Étant donné que NetApp Data Migrator n'applique pas les permissions héritées du répertoire racine, les sous-répertoires et fichiers qui dépendent de l'héritage ne reçoivent pas non plus les permissions héritées.
@@ -79,6 +83,7 @@ Une fois la migration terminée, réappliquez ou réinitialisez manuellement les
 
 
 
+[[validation-of-manual-upload-of-uid-and-gid-mapping-in-nfs]]
 === Validation du chargement manuel du mappage UID et GID dans NFS
 
 Lors des migrations NFS, si le fichier CSV de correspondance UID et GID contient des identifiants utilisateur ou groupe numériques qui n'existent pas sur le système de destination, NetApp Data Migrator applique (estampe) ces valeurs telles quelles. NetApp Data Migrator ne vérifie pas si l'UID ou le GID spécifié existe sur la destination et n'affiche aucune erreur ni aucun avertissement dans l'interface utilisateur. Cela peut entraîner une migration de fichiers avec une propriété incorrecte. Vous devez fournir la correspondance UID et GID correcte.
@@ -88,6 +93,7 @@ Avant de lancer la migration, assurez-vous que toutes les valeurs UID et GID sp�
 
 
 
+[[migration-precheck-displays-false-insufficient-space-warning]]
 === La vérification préalable de la migration affiche un faux avertissement d'espace insuffisant
 
 Lors des vérifications préalables à la migration, vous pourriez voir l'avertissement suivant, même si la destination dispose d'un espace suffisant :
@@ -108,10 +114,12 @@ Exécutez la découverte avant une exécution de migration. Cela garantit que le
 
 
 
+[[reporting]]
 == Rapports
 
 
 
+[[excel-displays-incorrect-permissions-in-coc-report-file]]
 === Excel affiche des autorisations incorrectes dans le fichier de rapport COC
 
 Lors de l'ouverture du fichier CSV du rapport de chaîne de contrôle (CoC) dans Microsoft Excel, certaines autorisations de fichiers ou de dossiers peuvent apparaître sous la forme #NAME?, par exemple -rwxrwxrwx, au lieu des valeurs réelles.
@@ -129,6 +137,7 @@ Pour afficher les autorisations correctes des fichiers et des dossiers, ouvrez l
 
 
 
+[[no-error-message-when-bulk-discovery-job-fails-due-to-network-issues]]
 === Aucun message d'erreur n'est affiché lorsque la tâche de découverte en masse échoue en raison de problèmes de réseau.
 
 Si le serveur hôte ou le serveur de destination tombe en panne pendant une tâche de découverte en masse, NetApp Data Migrator peut ne pas afficher de message d'erreur. Cela peut donner l'impression que la tâche se déroule toujours normalement.
@@ -172,6 +181,7 @@ ifup <interface_name>
 
 
 
+[[unable-to-switch-user-on-windows-worker]]
 === Impossible de changer d'utilisateur sur un poste de travail Windows
 
 Le passage à un autre compte utilisateur sur un poste de travail Windows peut échouer en raison de connexions réseau existantes. Cela peut empêcher l'accès au serveur de fichiers.
@@ -193,10 +203,12 @@ net use <IP address> /delete
 
 
 
+[[validation]]
 == Validation
 
 
 
+[[file-sizes-might-differ-after-migration-even-if-counts-match]]
 === La taille des fichiers peut différer après la migration même si les comptes correspondent
 
 Une fois la migration des données terminée, le nombre total de fichiers est correct, mais la taille de certains fichiers peut différer de celle de la source d'origine. Cela peut se produire en cas d'interruption du réseau ou de problèmes avec le serveur pendant le transfert des fichiers.
@@ -208,10 +220,12 @@ Une fois la migration des données terminée, le nombre total de fichiers est co
 
 
 
+[[workflows]]
 == Flux de travail
 
 
 
+[[job-paused-or-stalled-for-more-than-20-minutes]]
 === La tâche a été interrompue ou bloquée pendant plus de 20 minutes
 
 Il peut être nécessaire d'intervenir lorsque vous observez des problèmes de connectivité réseau, des problèmes de stabilité du volume source ou du volume de destination, ou les deux. La tâche peut être à l'état Pause ou En cours d'exécution sans progression visible. Cela peut se produire si les services source ou de destination sont indisponibles, ou si le service de traitement subit une interruption.
@@ -238,6 +252,7 @@ Si le problème persiste, redémarrez la machine virtuelle de travail.
 
 
 
+[[job-run-status-is-confusing-when-errors-occur]]
 === L'état d'exécution des tâches est déroutant en cas d'erreurs
 
 Certaines tâches de migration rencontrent des erreurs et affichent un statut « Terminé » ou « En erreur ». Cela peut prêter à confusion lors de l'interprétation du statut d'exécution de la tâche de migration.

@@ -15,6 +15,7 @@ Vous devez vous assurer que certains ports TCP sont ouverts pour permettre la co
 
 
 
+[[control-plane-ports]]
 == ports du plan de contrôle
 
 [cols="1,1,1,1a"]
@@ -53,6 +54,7 @@ Plan de contrôle
 |===
 
 
+[[worker-ports]]
 == Ports de travailleur
 
 [cols="1,1,1,1a"]

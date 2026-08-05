@@ -15,6 +15,7 @@ Si vous rencontrez des problèmes lors de l'utilisation de NetApp Data Migrator,
 
 
 
+[[smb-mount-failure-when-using-host-name]]
 == Échec du montage SMB lors de l'utilisation du nom de l'hôte
 
 Lors de la configuration d'une migration au niveau du répertoire, le montage SMB peut échouer si le nom de l'hôte du serveur de fichiers SMB est fourni sous forme d'URL. Cela peut se produire lorsque la machine virtuelle (VM) du plan de contrôle ne dispose pas de la configuration DNS correcte pour résoudre le nom de l'hôte du serveur de fichiers SMB. L'échec du montage peut s'afficher avec une erreur similaire à  `mount failed: Resource temporarily unavailable`.
@@ -37,6 +38,7 @@ Après avoir basculé vers l'adresse IP, l'opération de montage devrait réussi
 
 
 
+[[troubleshoot-application-access]]
 == Dépannage de l'accès à l'application
 
 Toutes les informations d'identification sont gérées dans OpenBao.
@@ -67,6 +69,7 @@ Clés : POSTGRES_DMADMIN_USER et POSTGRES_DMADMIN_PASSWORD
 
 
 
+[[use-the-kubectl-reference-commands]]
 == Utilisez les commandes de référence "kubectl"
 
 * Pour obtenir les pods dans l'espace de noms datamigrator :
@@ -103,6 +106,7 @@ kubectl get pods -n <NAMESPACE>
 
 
 
+[[unseal-openbao]]
 == Desceller OpenBao
 
 Si vous rencontrez un problème où OpenBao est scellé, suivez ces étapes pour le desceller.
@@ -123,6 +127,7 @@ kubectl exec openbao-2 -n openbao -- bao operator unseal $OPENBAO_UNSEAL_KEY
 
 
 
+[[troubleshoot-azure-vm-access]]
 == Dépannage de l'accès aux machines virtuelles Azure
 
 Vous devriez pouvoir créer et vous connecter à votre machine virtuelle Azure. Toutefois, si vous rencontrez des problèmes, essayez de redémarrer votre machine virtuelle ou de réinitialiser votre configuration SSH.
@@ -157,6 +162,7 @@ Commencez par consulter les instructions fournies dans ce link:https://learn.mic
 
 
 
+[[windows-worker-fails-to-switch-user-on-smb-file-server]]
 == Un processus Windows ne parvient pas à changer d'utilisateur sur le serveur de fichiers SMB
 
 Lorsqu'un poste de travail Windows tente de se connecter à un serveur de fichiers SMB en utilisant des informations d'identification différentes de celles utilisées précédemment pour ce même serveur de fichiers, le message d'erreur suivant peut apparaître :

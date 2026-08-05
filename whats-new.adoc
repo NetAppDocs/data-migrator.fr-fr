@@ -15,6 +15,7 @@ Découvrez les nouveautés de NetApp Data Migrator.
 
 
 
+[[22-april-2026]]
 == 22 avril 2026
 
 NetApp Data Migrator 2026.04.0 propose une nouvelle solution pour la migration de fichiers de données. Vous pouvez utiliser NetApp Data Migrator pour migrer des données depuis des systèmes de stockage locaux ou tiers vers les services de stockage cloud NetApp. NetApp Data Migrator prend en charge les protocoles de transfert de fichiers NFS et SMB.

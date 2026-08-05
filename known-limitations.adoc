@@ -15,6 +15,7 @@ Les limitations et fonctionnalités de migration NFS et SMB qui ne fonctionnent 
 
 
 
+[[nfs-and-smb-discovery-and-migration-limitations]]
 == Limitations de découverte et de migration NFS et SMB
 
 [cols="1,2,2a"]
@@ -48,6 +49,7 @@ Processeur à 8 cœurs, 64 Go de mémoire
 |===
 
 
+[[feature-limitations]]
 == Limitations des fonctionnalités
 
 [cols="1,2a"]

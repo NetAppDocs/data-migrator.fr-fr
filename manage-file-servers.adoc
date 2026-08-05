@@ -15,6 +15,7 @@ Vous pouvez utiliser NetApp Data Migrator pour ajouter, configurer et modifier d
 
 
 
+[[add-a-new-file-server]]
 == Ajouter un nouveau serveur de fichiers
 
 Ajoutez un nouveau serveur de fichiers NFS ou SMB et configurez les machines virtuelles de travail.
@@ -138,6 +139,8 @@ Si la vérification préalable se termine sans erreur, le nom de votre serveur d
 ====
 
 
+[[manually-upload-export-and-directory-paths]]
+[[manually-upload-export-paths]]
 == Téléversez manuellement les chemins d’exportation et de répertoire
 
 NetApp Data Migrator vous permet de télécharger manuellement les chemins d’exportation et les chemins de répertoires pour les utiliser dans les opérations de migration des données via le protocole NFS. Cette fonctionnalité est utile dans les environnements où la détection automatique des chemins d’exportation NFS est indisponible. Par exemple, pour une utilisation avec le service GCNV Flex ou lors de la migration de chemins de répertoires au lieu du chemin d’exportation complet. Si vous sélectionnez *Téléchargement manuel* dans le panneau *Mécanisme de récupération des chemins d’exportation*, vous devez télécharger et compléter le fichier modèle fourni par NetApp Data Migrator après avoir créé un serveur de fichiers.
@@ -167,6 +170,7 @@ Une fois le chargement terminé, les chemins d'exportation et les chemins de ré
 
 
 
+[[edit-file-server-details]]
 == Modifier les détails du serveur de fichiers
 
 Si nécessaire, vous pouvez apporter des modifications à un serveur de fichiers précédemment configuré.

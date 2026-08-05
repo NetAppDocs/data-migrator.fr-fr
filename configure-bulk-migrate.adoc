@@ -15,6 +15,7 @@ Utilisez les fonctionnalités de migration en masse de NetApp Data Migrator pour
 
 
 
+[[step-1-configure-bulk-migrate-in-netapp-data-migrator]]
 == Étape 1 : Configurer la migration en masse dans NetApp Data Migrator
 
 Vous devez définir les serveurs pour la migration en masse avant de pouvoir utiliser les fonctionnalités de Bulk Migrate.
@@ -28,6 +29,7 @@ Vous devez définir les serveurs pour la migration en masse avant de pouvoir uti
 
 
 
+[[step-2-add-source-and-destination-mappings]]
 == Étape 2 : Ajouter les mappages source et destination
 
 Ajoutez des mappages source et destination pour spécifier les chemins d'exportation source et destination de votre migration.
@@ -53,6 +55,7 @@ NetApp Data Migrator vous empêche de sélectionner un mappage ayant une relatio
 
 
 
+[[step-3-customize-the-bulk-migrate-job]]
 == Étape 3 : Personnaliser la tâche de migration en masse
 
 Vous pouvez sélectionner différents paramètres sur la page *Options* pour personnaliser votre tâche Bulk Migrate, en fonction de vos besoins.
@@ -144,6 +147,7 @@ Après avoir sélectionné vos options, sélectionnez *Procéder* pour ouvrir la
 
 
 
+[[step-4-review-and-submit]]
 == Étape 4 : Examiner et soumettre
 
 Vérifiez vos paramètres, puis procédez à une migration en masse.

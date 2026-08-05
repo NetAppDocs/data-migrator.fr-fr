@@ -15,6 +15,7 @@ Vous pouvez utiliser l'onglet Projets dans le plan de contrôle NetApp Data Migr
 
 
 
+[[create-a-project]]
 == Créer un projet
 
 Les utilisateurs administrateurs d'applications peuvent créer un nouveau projet dans NetApp Data Migrator et y affecter des utilisateurs ayant des rôles définis.
@@ -37,6 +38,7 @@ Les utilisateurs administrateurs d'applications peuvent créer un nouveau projet
 
 
 
+[[edit-a-project]]
 == Modifier un projet
 
 Vous pouvez rapidement modifier les détails de votre projet, s'ils nécessitent une mise à jour.
@@ -51,6 +53,7 @@ Vous pouvez rapidement modifier les détails de votre projet, s'ils nécessitent
 
 
 
+[[switch-between-projects]]
 == Alterner entre les projets
 
 Si vous suivez plusieurs projets simultanément, vous pouvez passer rapidement de l'un à l'autre.

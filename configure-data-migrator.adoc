@@ -15,6 +15,8 @@ Après avoir installé NetApp Data Migrator, vous devez vous connecter en tant q
 
 
 
+[[log-in-to-netapp-data-migrator]]
+[[log-in]]
 == Se connecter à NetApp Data Migrator
 
 Connectez-vous à NetApp Data Migrator, puis modifiez vos identifiants de connexion et créez votre premier projet.
@@ -56,6 +58,7 @@ Le nouveau projet apparaît dans la barre de notification en haut du plan de con
 
 
 
+[[log-out-of-netapp-data-migrator]]
 == Déconnexion de NetApp Data Migrator
 
 Après vous être déconnecté de NetApp Data Migrator, vous devrez utiliser vos nouveaux identifiants (adresse e-mail et mot de passe) lors de votre prochaine connexion.

@@ -21,6 +21,7 @@ Vous pouvez mettre à niveau un plan de contrôle, un nœud de calcul Linux ou u
 
 
 
+[[step-1-upload-the-upgrade-bundle]]
 == Étape 1 : Téléchargez le pack de mise à niveau
 
 Téléchargez le bundle de mise à niveau depuis votre répertoire local.
@@ -39,6 +40,7 @@ Attendez que le message confirmant que le téléchargement et la validation sont
 
 
 
+[[step-2-upgrade-the-control-plane-and-workers]]
 == Étape 2 : Mise à niveau du plan de contrôle et des workers
 
 Mettez à niveau le plan de contrôle, puis le worker Linux ou Windows.
@@ -78,6 +80,8 @@ ExecutionPolicy Bypass -File C:\datamigrator\staging\<version>\upgrade.ps1 -Vers
 
 
 
+[[step-3-view-logs-and-troubleshoot]]
+[[view-logs]]
 == Étape 3 : Consulter les journaux et résoudre les problèmes
 
 Consultez les journaux de la machine virtuelle pour faciliter le dépannage des problèmes rencontrés lors de la mise à niveau.

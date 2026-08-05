@@ -15,6 +15,7 @@ Vous devez vous assurer que l'adresse IP et le sous-réseau du plan de contrôle
 
 
 
+[[verify-nfs-access]]
 == Vérifier l'accès NFS
 
 Pour NFS, le plan de contrôle et les nœuds de travail doivent être autorisés à accéder au système de stockage en tant que clients racine.
@@ -32,6 +33,7 @@ ls -la /mnt/test
 
 
 
+[[verify-smb-access]]
 == Vérifier l'accès SMB
 
 Pour l'accès SMB, le plan de contrôle et les nœuds de travail doivent être autorisés à accéder au système de stockage à l'aide des identifiants SMB. L'utilisateur SMB doit appartenir aux groupes Backup operators et Administrators.

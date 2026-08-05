@@ -18,6 +18,7 @@ Vous devez être connecté en tant qu'App Admin pour ajouter un nouvel utilisate
 
 
 
+[[add-a-new-user]]
 == Ajouter un nouvel utilisateur
 
 Créez un nouvel utilisateur et partagez le mot de passe temporaire.
@@ -36,6 +37,7 @@ Créez un nouvel utilisateur et partagez le mot de passe temporaire.
 
 
 
+[[disable-an-existing-user]]
 == Désactiver un utilisateur existant
 
 Désactivez l'accès à NetApp Data Migrator pour les autres utilisateurs. Cela empêche les utilisateurs de se connecter, mais ne supprime pas les données utilisateur ni les tâches de migration ou journaux précédents associés à cet utilisateur.
@@ -51,6 +53,7 @@ Le statut de l'utilisateur passe de *Actif* à *Inactif* et il ne peut plus se c
 
 
 
+[[enable-a-user]]
 == Activer un utilisateur
 
 Rétablir l'accès à NetApp Data Migrator pour un utilisateur désactivé, lui permettant de se connecter et d'effectuer des actions en fonction des autorisations qui lui sont attribuées.
@@ -66,6 +69,7 @@ Le statut de l'utilisateur passe de *Inactif* à *Actif*. L'utilisateur peut dé
 
 
 
+[[reset-a-user-password]]
 == Réinitialiser le mot de passe utilisateur
 
 Réinitialiser le mot de passe d'un utilisateur existant.

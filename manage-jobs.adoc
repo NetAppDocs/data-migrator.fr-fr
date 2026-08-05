@@ -18,6 +18,7 @@ NOTE: N’exécutez pas simultanément les tâches de migration et de basculemen
 
 
 
+[[view-job-config-list]]
 == Afficher la liste des configurations de tâches
 
 La page *Liste des configurations de tâches* offre une vue d'ensemble complète de toutes les tâches liées à la migration. Utilisez cette page pour surveiller et gérer l'état et la progression des tâches de *Discovery*, *Migration* et *Cutover*.
@@ -56,6 +57,7 @@ Les tâches utilisant des chemins d'exportation manuels ou le fichier de chemins
 
 
 
+[[activate-or-deactivate-a-job]]
 == Activer ou désactiver un job
 
 Dans le tableau des offres d'emploi, vous pouvez activer ou désactiver un travail.
@@ -79,6 +81,7 @@ Dans le tableau des offres d'emploi, vous pouvez activer ou désactiver un trava
 
 
 
+[[edit-job-configurations]]
 == Modifier les configurations de travail
 
 .Étapes
@@ -113,6 +116,7 @@ NOTE: Modifier la configuration, par exemple en désactivant la conservation des
 
 
 
+[[re-run-errored-files-and-directories]]
 == Réexécuter les fichiers et répertoires ayant généré des erreurs
 
 Si une tâche de migration s'achève avec des erreurs dues à des problèmes transitoires tels que des délais d'attente réseau ou des problèmes d'autorisation, vous pouvez utiliser la fonction de nouvelle tentative pour retraiter uniquement les éléments ayant échoué sans avoir à relancer l'intégralité de la migration.
@@ -125,6 +129,7 @@ Si une tâche de migration s'achève avec des erreurs dues à des problèmes tra
 
 
 
+[[delete-a-job]]
 == Supprimer un travail
 
 .Étapes
@@ -139,6 +144,7 @@ NOTE: Vous ne pouvez supprimer une tâche que s'il n'y a pas d'exécution en cou
 
 
 
+[[view-job-details]]
 == Voir les détails de l'offre
 
 Depuis la page *Liste de configuration des tâches*, vous pouvez accéder à la page *Détails de la tâche* pour consulter des informations supplémentaires sur chaque tâche, telles que :
@@ -157,6 +163,7 @@ Depuis la page *Liste de configuration des tâches*, vous pouvez accéder à la 
 
 
 
+[[view-job-run-history]]
 == Afficher l'historique des tâches
 
 Sur la page *Détails de la tâche*, le tableau *Historique d'exécution* vous fournit des informations sur les exécutions précédentes et l'état de la tâche.
@@ -181,6 +188,7 @@ Les types de statut de tâche de basculement comprennent :
 
 
 
+[[manage-job-run-operations]]
 == Gérer les opérations d'exécution des tâches
 
 Depuis la page *Détails de la tâche*, vous pouvez gérer les opérations *Démarrer*, *Arrêter*, *Mettre en pause* et *Reprendre* d'une tâche. Utilisez la fonction *Mettre en pause* pour interrompre temporairement une tâche en cours d'exécution, sans l'annuler. Vous pouvez ensuite reprendre la tâche à l'endroit où elle a été mise en pause. Il s'agit d'une fonctionnalité utile dans les scénarios où vous devez libérer des ressources système ou résoudre des problèmes sans perdre la progression.
@@ -215,6 +223,7 @@ L'état d'exécution de la tâche passe à *En cours d'exécution*.
 
 
 
+[[access-job-run-details]]
 == Accéder aux détails d'exécution de la tâche
 
 Dans le tableau *Historique des exécutions*, accédez à la page *Détails de l'exécution des tâches* où vous pouvez consulter des informations supplémentaires sur vos exécutions de tâches.
@@ -258,6 +267,7 @@ La vignette en bas à droite de la page *Détails de l'exécution de la tâche* 
 
 
 
+[[view-migration-activity]]
 == Afficher l'activité de migration
 
 La page « Activité de migration » affiche les dix fichiers les plus anciens en cours de migration. Elle indique également le nombre total de fichiers en cours et propose de télécharger un fichier CSV contenant la liste complète de ces fichiers.
@@ -269,6 +279,7 @@ La page « Activité de migration » affiche les dix fichiers les plus anciens
 
 
 
+[[generate-a-job-error-report]]
 == Générer un rapport d'erreur de tâche
 
 Vous pouvez générer un rapport d'erreur pour les tâches ayant le statut *Erreur* ou pour une exécution de tâche précédente. Un rapport d'erreur peut vous aider à comprendre pourquoi une erreur s'est produite.

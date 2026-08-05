@@ -15,12 +15,14 @@ NetApp Data Migrator prend en charge certaines fonctionnalités, certains serveu
 
 
 
+[[supported-and-unsupported-features]]
 == Fonctionnalités prises en charge et non prises en charge
 
 NetApp Data Migrator prend en charge diverses fonctionnalités pour les migrations NFS et SMB. Certaines fonctionnalités ne sont pas prises en charge.
 
 
 
+[[supported-features]]
 === Fonctionnalités prises en charge
 
 [cols="1,2a"]
@@ -76,6 +78,7 @@ NetApp Data Migrator migre les objets et les liens sous forme de fichiers sépar
 |===
 
 
+[[unsupported-features]]
 === Fonctionnalités non prises en charge
 
 [cols="1,2a"]
@@ -115,6 +118,7 @@ Migration des instantanés
 |===
 
 
+[[supported-file-servers]]
 == Serveurs de fichiers pris en charge
 
 NetApp Data Migrator prend en charge certains serveurs de fichiers comme source et destination pour la migration des données.
@@ -135,6 +139,7 @@ Tous les niveaux de service d'Azure NetApp Files (ANF), Google Cloud NetApp Volu
 |===
 
 
+[[supported-nfs-and-smb-migration-protocols]]
 == Protocoles de migration NFS et SMB pris en charge
 
 NetApp Data Migrator prend en charge certaines versions des protocoles NFS et SMB pour la migration des données.
