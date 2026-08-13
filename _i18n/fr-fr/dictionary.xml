@@ -417,7 +417,6 @@
   <block id="d68b89dd902e3f97ffcbe45b9253727c" category="section-title">Limitations de découverte et de migration NFS et SMB</block>
   <block id="1d1a594959ec615f56516f5d0f5e8ddb" category="cell">NFS</block>
   <block id="b4fdd997b1f33e0d4c6964444c2bf399" category="cell">SMB</block>
-  <block id="86312caa3236e6ae5b9a65f669b1066e" category="cell">Nombre de chemins d'exportation pouvant s'exécuter simultanément</block>
   <block id="a87ff679a2f3e71d9181a67b7542122c" category="cell">4</block>
   <block id="c81e728d9d4c2f636f067f89cc14862c" category="paragraph">2</block>
   <block id="dcec8cdc08cb7e4cd8fb7a0e71bb395e" category="cell">Nombre maximal de fichiers dans un répertoire</block>
@@ -855,13 +854,10 @@
   <block id="8c80aa6f5c4a56ba63ac80facdf87e21" category="list-text">Sélectionnez le lien *Copier* (à côté du champ du mot de passe) pour copier le mot de passe temporaire qui s'affiche sous forme masquée.</block>
   <block id="cf5ac14c923e217f8621f7578c85d0fe" category="list-text">Partagez le mot de passe temporaire copié avec l'utilisateur.</block>
   <block id="63a9b59d9eeaa83e38c4e663bd9e7900" category="summary">Exigences réseau pour NetApp Data Migrator, y compris les ports TCP et UDP requis pour la communication du plan de contrôle et des nœuds de calcul.</block>
-  <block id="b310edaf82f204e9718085669d590c51" category="doc">Vérifiez l'accès réseau NFS et SMB dans NetApp Data Migrator</block>
   <block id="83dd90d354af338509d82491d3562ce5" category="paragraph">Vous devez vous assurer que l'adresse IP et le sous-réseau du plan de contrôle et des nœuds de calcul sont autorisés dans les règles d'export du système de stockage. Ceci est nécessaire pour prendre en charge les migrations NFS et SMB à l'aide de NetApp Data Migrator.</block>
-  <block id="d42785ca0c7a8353fd3af0404f7f76ec" category="section-title">Vérifier l'accès NFS</block>
   <block id="a4a5f9d92ece1da457590abead01c800" category="paragraph">Pour NFS, le plan de contrôle et les nœuds de travail doivent être autorisés à accéder au système de stockage en tant que clients racine.</block>
   <block id="dc1b12a3f0273d08d2bef65121eb1dc9" category="list-text">Effectuez un montage manuel à partir d'un nœud de travail pour vérifier l'accessibilité du volume :</block>
   <block id="e444418f6335877aa994afd33d95f14c" category="list-text">Assurez-vous que l'accès root est activé en vérifiant que la règle d'export autorise l'accès superutilisateur. Si nécessaire, activez l'accès root (sans root squash) en modifiant la règle d'export.</block>
-  <block id="7c743f89091b4b8112d5fee57902a619" category="section-title">Vérifier l'accès SMB</block>
   <block id="8b6f62968f51d6a991260460c4a46be8" category="paragraph">Pour l'accès SMB, le plan de contrôle et les nœuds de travail doivent être autorisés à accéder au système de stockage à l'aide des identifiants SMB. L'utilisateur SMB doit appartenir aux groupes Backup operators et Administrators.</block>
   <block id="6d45427fa10981ce1f7403d67b49a7fc" category="summary">Exigences en matière de ports pour NetApp Data Migrator, y compris les ports TCP et UDP requis pour la communication entre le plan de contrôle et les workers.</block>
   <block id="73a306c3efc59e9f206073a424a7e4e9" category="doc">Exigences de port pour NetApp Data Migrator</block>
@@ -871,30 +867,12 @@
   <block id="a93bcb5a82072c389a3b8a73489512f7" category="cell">port TCP</block>
   <block id="5da618e8e4b89c66fe86e32cdafde142" category="cell">Depuis</block>
   <block id="e12167aa0a7698e6ebc92b4ce3909b53" category="cell">À</block>
-  <block id="5da09289c454b8fb0d2ae81efe01e26a" category="cell">Serveur Temporal</block>
-  <block id="90f59abb89fa736f0be80a63a864f030" category="cell">7233 ou 7234</block>
-  <block id="060428837aa1bdeae6e1204f55df044b" category="cell">Travailleurs et clients</block>
-  <block id="7e1251b01a19502493e461f843d6e284" category="cell">Interface utilisateur temporelle</block>
-  <block id="d4a973e303ec37692cc8923e3148eef7" category="cell">8080</block>
-  <block id="34ee8ff3f2c16d8758d1a9c1424014ac" category="cell">Port par défaut, si activé</block>
-  <block id="1110484ce835edb1d96d44f5d094aa8a" category="cell">PostgreSQL (base de données temporelle)</block>
-  <block id="2e92962c0b6996add9517e4242ea9bdc" category="cell">5432</block>
-  <block id="dbacec538ed33a36fc4f901a63177337" category="cell">Services temporaires (depuis le plan de contrôle)</block>
   <block id="e111446745a1825b862f8727ae63bce4" category="cell">Redis</block>
   <block id="92c3b916311a5517d9290576e3ea37ad" category="cell">6379</block>
-  <block id="6dffc2d6b8f8f54efdc637e4c8e124da" category="cell">Services de plan de contrôle ou de worker</block>
-  <block id="c06025dd19f6e0cb028d8bc3b98e26bc" category="cell">API ou interface utilisateur (votre application)</block>
-  <block id="8f30ebd9cc2f99b7d91400cf19955f28" category="cell">80 ou 443</block>
-  <block id="6881c17f4cf6149a0519a4ae1f3d4d4d" category="cell">Navigateur ou tout client externe</block>
   <block id="13d976ec915aee59afabcef6291764b8" category="cell">Grafana</block>
   <block id="e93028bdc1aacdfb3687181f2031765d" category="cell">3000</block>
   <block id="ef15fd2f45e6bb5ce57587895ba64f93" category="cell">Navigateur</block>
   <block id="6ce0c3ae03134ce5b0f181ee6fbb6d8a" category="section-title">Ports de travailleur</block>
-  <block id="cf2f8733eabc17ed9298656b087af7f1" category="cell">Sortant vers le plan de contrôle</block>
-  <block id="012a91467f210472fab4e11359bbfef6" category="cell">7233</block>
-  <block id="bb3f41988e376dcfc782af81bfb2e750" category="cell">Services dans le plan de contrôle</block>
-  <block id="72f374619a9bb397e4c8584ebc6f9cb2" category="paragraph">Interface Temporal</block>
-  <block id="a11ba87073e84d545fc147559305fa76" category="paragraph">API ou interface utilisateur (si vous l’appelez)</block>
   <block id="4ca3ac99649e5fe5a93b2d985a709990" category="cell">Sortie vers le stockage</block>
   <block id="06b1338ba02add2b5d2da67663b19ebe" category="cell">2049</block>
   <block id="8a568ad9efb130b5a037e35e698344d5" category="paragraph">Serveurs NFS</block>
@@ -910,7 +888,6 @@
   <block id="21979bfea7dd1751a92060597b2ec017" category="list-text">Services Google Cloud</block>
   <block id="0862233707b48de2f150ca8e726c6abd" category="list-text">Modèles d'appliance virtuelle ouverte (OVA)</block>
   <block id="9251700e586dc1a410f2e755a8643751" category="inline-link-macro">Exigences de mise en réseau</block>
-  <block id="2bf577e3ba4de34a09af5c8868044c19" category="paragraph">Examinez <block ref="132a4252d8dab891f29e77b7b5f68e5e" category="inline-link-macro-rx"></block> et le <block ref="238a191c4340745369e9fea191c6bd8b" category="inline-link-macro-rx"></block>.</block>
   <block id="aada29daee1d64ed0fe907043855cb7e" category="inline-image-macro">Deux</block>
   <block id="5fde5220f592469d6ce84d6ec33efd29" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block>Installer et configurer</block>
   <block id="63394b5dac0402e2937e6cf6472579c9" category="paragraph">NetApp Data Migrator utilise un plan de contrôle et des nœuds de travail. Commencez par déployer la machine virtuelle du plan de contrôle et les machines virtuelles de travail en fonction de vos besoins de migration. Pour NFS, vous déployez un nœud de travail Linux et pour SMB, vous déployez un nœud de travail Windows. Vous pouvez utiliser NFS ou SMB, ou les deux protocoles. Après le déploiement, vous créez la machine virtuelle du plan de contrôle et les machines virtuelles de travail et accédez à l’interface utilisateur NetApp Data Migrator.</block>
@@ -1096,7 +1073,6 @@
   <block id="8689268a435101ff0211b2d1734523b7" category="paragraph">Si l'installation est terminée, vous voyez <block ref="7d9465f9a64b1f922a55bc11a51fcb14" prefix=" " category="inline-code"></block> dans les journaux.</block>
   <block id="432d212d797d16c62fa96e0ec1e3c736" category="list-text">Vérifiez que tous les pods sont opérationnels :</block>
   <block id="1e9dd46f61a201cc2b86879d26a9c48c" category="inline-link-macro">accéder à l’interface utilisateur du migreur de données NetApp</block>
-  <block id="5615f0657330552866b623eca261abdf" category="paragraph">Après avoir appris à valider la VM du plan de contrôle, vous pouvez <block ref="be3bcec36ca8095627c0973264f63ac3" category="inline-link-macro-rx"></block>.</block>
   <block id="daad4dadeda8cd86f01c8ad7f2a30465" category="summary">Découvrez les nouveautés de ce site de documentation.</block>
   <block id="2755dc4f192cb17cab8eba8e536ab485" category="doc">Nouveautés de NetApp Data Migrator</block>
   <block id="3a9821361199b11d3443525a500ce59c" category="paragraph">Découvrez les nouveautés de NetApp Data Migrator.</block>
@@ -1121,7 +1097,6 @@
   <block id="097269d68dda9a5a6965173c16acef55" category="sidebar">Matrice de support</block>
   <block id="95dc0391ce7b396d7dd5622284e8fc3e" category="sidebar">Problèmes connus</block>
   <block id="482723983a4f2af954e36ff41e567451" category="sidebar">Limitations connues</block>
-  <block id="6dd5c811b278e22ffab2e2908a5119ba" category="sidebar">Vérifier l'accès au réseau</block>
   <block id="76841410d8f9a6881e0b96f150e9cedf" category="sidebar">Exigences relatives aux ports</block>
   <block id="20d4d7b9936154505ade9240689b5770" category="sidebar">Installation, configuration et mise à niveau</block>
   <block id="d45294caa04dc2a59a6a9779ecb261e1" category="sidebar">Inscrivez-vous pour un compte</block>
@@ -1156,8 +1131,6 @@
   <block id="971e1a6fb808ebf9b49a8e5292af7a67" category="paragraph">Après avoir appris à créer le plan de contrôle et les machines virtuelles de travail, vous pouvez effectuer les opérations suivantes :</block>
   <block id="1251f1d578f1d6119b3c18fedfdb3ff9" category="inline-link-macro">valider la machine virtuelle du plan de contrôle</block>
   <block id="1bc0cd7367326350e27456afb38f6c4a" category="list-text">Facultativement <block ref="4d97b867bb9f75267c66c77f4694e105" category="inline-link-macro-rx"></block></block>
-  <block id="84c99c15058d4e5c618312936435ab0f" category="inline-link-macro">Accédez à l’interface utilisateur NetApp Data Migrator et connectez-vous au plan de contrôle et aux workers</block>
-  <block id="b3cd170ee2bfc309cc7cb338f10a3904" category="list-text"><block ref="b3cd170ee2bfc309cc7cb338f10a3904" category="inline-link-macro-rx"></block></block>
   <block id="efe7275bf81b553b7f1c1571b6fded79" category="paragraph">Téléchargez les images NetApp Data Migrator depuis <block ref="79a5efacdd8155d1c0d2f7284cc3f087" category="inline-link-macro-rx"></block> :</block>
   <block id="953b1faf3afe7942fa40444c40dcdd9d" category="paragraph"><block ref="3713b6efd29a2574d01586436235bfc4" prefix="" category="inline-code"></block></block>
   <block id="c54aeafac3fb6ac981207fb56c38dab6" category="list-text">Téléchargez le fichier image du plan de contrôle<block ref="d6f1afa70d6145a212d9dc6bc8a2fa64" prefix=" " category="inline-code"></block> et le fichier image du nœud de calcul Linux<block ref="d6f1afa70d6145a212d9dc6bc8a2fa64" prefix=" " category="inline-code"></block> depuis le <block ref="a42716fdd3c80ae75cadfb8024b65de0" category="inline-link-macro-rx"></block>.</block>
@@ -1177,4 +1150,37 @@
   <block id="c9fbfd8a6f3192f2f1e72e34686607dc" category="paragraph">Lorsque vous activez cette option, toutes les autorisations héritées de la source sont écrites comme autorisations explicites sur la destination lors des migrations SMB au niveau du répertoire.</block>
   <block id="2df75f082db896eeb89f434ebd16a479" category="admonition">NetApp Data Migrator ne prend pas en charge la migration des données vers des systèmes de stockage ONTAP sur site.</block>
   <block id="e1aa567e142d04af6a707f8d980bb5b2" category="paragraph">Cette erreur se produit lorsque le chemin d'exportation et le répertoire de travail sont correctement spécifiés, mais que les autorisations d'écriture nécessaires ne sont pas accordées. Sans les droits d'écriture requis, la vérification préalable du serveur de fichiers échoue et vous ne pouvez pas exécuter de tâches. Vérifiez que l'utilisateur rencontrant l'erreur dispose des droits d'écriture requis.</block>
+  <block id="1c994733ce02bce88b82c9ee9701155c" category="doc">Configurez l'accès aux nœuds du plan de contrôle et aux nœuds de travail dans NetApp Data Migrator</block>
+  <block id="1b2b9ce55b8c89f4a958eec5837f7d1d" category="section-title">Configurer l'accès NFS</block>
+  <block id="150b07974736256cd8910dfcdf913c34" category="section-title">Configurer l'accès SMB</block>
+  <block id="f07e66c3e933ca0921de6ade94bb5d44" category="list-text">Intégrez la machine virtuelle de travail Windows à un domaine.</block>
+  <block id="aec8a49c39d13bab45eec74363595025" category="paragraph">Active Directory s'appuie sur le DNS pour la découverte des contrôleurs de domaine. Avant de tenter de rejoindre un domaine, vérifiez que votre système peut localiser le contrôleur de domaine et que la machine virtuelle Windows est configurée pour utiliser le serveur DNS Active Directory.</block>
+  <block id="727d6ec7c143ece348a58c5723f2f025" category="inline-link-macro">Documentation Microsoft</block>
+  <block id="9842930678c59fd25718eaeff31a944f" category="paragraph">Une fois le DNS configuré, suivez les instructions <block ref="4a83b3a97e4f05614c86aeee910111c1" category="inline-link-macro-rx"></block> pour joindre la machine virtuelle Windows Worker au domaine.</block>
+  <block id="df89903ac37a915ec7c4751b7278cb49" category="inline-link-macro">Documentation de dépannage pour l'intégration à un domaine Microsoft</block>
+  <block id="2deaea449c0ce3e62022d7cb905c3b12" category="paragraph">Si vous rencontrez des problèmes lors du processus d'intégration au domaine, veuillez vous référer à la <block ref="2be29f66198076440744873b4a83b313" category="inline-link-macro-rx"></block>.</block>
+  <block id="a13be594ac49ec09571b0191496e9e79" category="inline-link-macro">exigences de port</block>
+  <block id="6a814b553ae8fdba9ee07afd73508a69" category="paragraph">Après avoir configuré l'accès au réseau, vérifiez le <block ref="74191aad62050e7d62fe77b2f492d8e2" category="inline-link-macro-rx"></block>.</block>
+  <block id="a9d901fe4b275d0389e503cd3a54f58b" category="inline-link-macro">Configurer l'accès pour le plan de contrôle et les nœuds de travail</block>
+  <block id="e8f0cce1bc1e5250c0d8af6e1f3244cc" category="list-text"><block ref="e8f0cce1bc1e5250c0d8af6e1f3244cc" category="inline-link-macro-rx"></block></block>
+  <block id="abffbeaf5ee8abe303a0b31641c07809" category="cell">Nombre de tâches parallèles</block>
+  <block id="19e45fa0a4406497759dbf0dd423cc83" category="cell">Temporel</block>
+  <block id="371de6888305a6ed2b3d671964fd8954" category="cell">7233 ou 7234, 8080</block>
+  <block id="995fc560d6c8e4c57c0e5c9f6c0618d6" category="cell">Travailleurs et clients (navigateur ou tout client externe)</block>
+  <block id="01e971ee97c8ada92f30b73396df0c7c" category="cell">Application NDM</block>
+  <block id="13f3cf8c531952d72e5847c4183e6910" category="cell">443</block>
+  <block id="f5936f1202a484aee0b3d803aed1a5d9" category="cell">Console de gestion Isilon</block>
+  <block id="641ec62f20c806175741f0723cb6af5d" category="cell">443, 8080</block>
+  <block id="64fc9337a916327c78736cd1603da8ea" category="paragraph">Après avoir examiné les exigences relatives aux ports, vous pouvez <block ref="be3bcec36ca8095627c0973264f63ac3" category="inline-link-macro-rx"></block>.</block>
+  <block id="c0344b592eae88f2d48fc131e4f71cb4" category="paragraph">Examinez <block ref="132a4252d8dab891f29e77b7b5f68e5e" category="inline-link-macro-rx"></block> et le <block ref="6a37b291f715e0a715104fd841801938" category="inline-link-macro-rx"></block>.</block>
+  <block id="dc7f96ee70742882467448fff2d8bd37" category="cell">Migration Active Directory croisée</block>
+  <block id="6b12a23db7936b8ba200771d17ffaf7d" category="paragraph">Migrations inter-domaines entre systèmes source et de destination joints à différents domaines Active Directory</block>
+  <block id="45e8b07d6e63451405a4af0faf235cac" category="inline-link-macro">configurer l'accès pour le plan de contrôle et les nœuds de travail</block>
+  <block id="689828d3c67545a57790978f26fdbc1f" category="paragraph">Après avoir validé le plan de contrôle et le déploiement des nœuds de calcul, vous pouvez <block ref="1c35f11d0736a4fa1615fc7f9eeaf45b" category="inline-link-macro-rx"></block>.</block>
+  <block id="c17e3d0c6de4d2df7e17cedee1d9c00f" category="section-title">12 juin 2026</block>
+  <block id="be31dc0927d7c6333f462c684e9cdfb0" category="paragraph">NetApp Data Migrator 2026.06.0 améliore la précision, la fiabilité, l'évolutivité et la sécurité des migrations de données :</block>
+  <block id="225cd2f2f0e0075823c3e7a0ea90f516" category="list-text">Améliore la précision des migrations incrémentales et la préservation des métadonnées pour SMB grâce à l'inclusion de modes d'héritage d'autorisation configurables et à une synchronisation des métadonnées améliorée.</block>
+  <block id="9f8e8367e5ba7abf45616124b13023c7" category="inline-link-macro">Personnalisez une tâche de migration en masse</block>
+  <block id="8d98da09fae74d08452302f3adc4fa59" category="paragraph"><block ref="8d98da09fae74d08452302f3adc4fa59" category="inline-link-macro-rx"></block></block>
+  <block id="3d705eb529268ebde05f92b2d147770c" category="list-text">Inclut des améliorations de performance et de stabilité pour les flux de travail de découverte, de migration et d'estampillage des autorisations pour NFS et SMB.</block>
 </blocks>

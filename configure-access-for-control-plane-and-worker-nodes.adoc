@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
-permalink: networking-requirements.html 
+permalink: configure-access-for-control-plane-and-worker-nodes.html 
 keywords: networking requirements, TCP, UDP, control plane, worker, communication 
 summary: Exigences réseau pour NetApp Data Migrator, y compris les ports TCP et UDP requis pour la communication du plan de contrôle et des nœuds de calcul. 
 ---
-= Vérifiez l'accès réseau NFS et SMB dans NetApp Data Migrator
+= Configurez l'accès aux nœuds du plan de contrôle et aux nœuds de travail dans NetApp Data Migrator
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/
@@ -15,8 +15,8 @@ Vous devez vous assurer que l'adresse IP et le sous-réseau du plan de contrôle
 
 
 
-[[verify-nfs-access]]
-== Vérifier l'accès NFS
+[[configure-nfs-access]]
+== Configurer l'accès NFS
 
 Pour NFS, le plan de contrôle et les nœuds de travail doivent être autorisés à accéder au système de stockage en tant que clients racine.
 
@@ -33,16 +33,29 @@ ls -la /mnt/test
 
 
 
-[[verify-smb-access]]
-== Vérifier l'accès SMB
+[[configure-smb-access]]
+== Configurer l'accès SMB
 
 Pour l'accès SMB, le plan de contrôle et les nœuds de travail doivent être autorisés à accéder au système de stockage à l'aide des identifiants SMB. L'utilisateur SMB doit appartenir aux groupes Backup operators et Administrators.
 
-.Étape
+.Étapes
 . Effectuez un montage manuel à partir d'un nœud de travail pour vérifier l'accessibilité du volume :
 +
 [source, cli]
 ----
 net use Z: \\<storage-ip>\<share> /user:<domain>\<username> <password>
 ----
+. Intégrez la machine virtuelle de travail Windows à un domaine.
++
+Active Directory s'appuie sur le DNS pour la découverte des contrôleurs de domaine. Avant de tenter de rejoindre un domaine, vérifiez que votre système peut localiser le contrôleur de domaine et que la machine virtuelle Windows est configurée pour utiliser le serveur DNS Active Directory.
 
++
+Une fois le DNS configuré, suivez les instructions link:https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/join-computer-to-domain?tabs=cmd&pivots=windows-server-2025["Documentation Microsoft"^] pour joindre la machine virtuelle Windows Worker au domaine.
+
++
+Si vous rencontrez des problèmes lors du processus d'intégration au domaine, veuillez vous référer à la link:https://techcommunity.microsoft.com/blog/askds/domain-join-and-basic-troubleshooting/4405860["Documentation de dépannage pour l'intégration à un domaine Microsoft"^].
+
+
+
+.Et ensuite ?
+Après avoir configuré l'accès au réseau, vérifiez le link:port-requirements.html["exigences de port"].

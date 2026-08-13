@@ -15,6 +15,20 @@ Découvrez les nouveautés de NetApp Data Migrator.
 
 
 
+[[12-june-2026]]
+== 12 juin 2026
+
+NetApp Data Migrator 2026.06.0 améliore la précision, la fiabilité, l'évolutivité et la sécurité des migrations de données :
+
+* Améliore la précision des migrations incrémentales et la préservation des métadonnées pour SMB grâce à l'inclusion de modes d'héritage d'autorisation configurables et à une synchronisation des métadonnées améliorée.
++
+link:configure-bulk-migrate.html#inherited-permissions["Personnalisez une tâche de migration en masse"]
+
+* Inclut des améliorations de performance et de stabilité pour les flux de travail de découverte, de migration et d'estampillage des autorisations pour NFS et SMB.
+
+
+
+
 [[22-april-2026]]
 == 22 avril 2026
 

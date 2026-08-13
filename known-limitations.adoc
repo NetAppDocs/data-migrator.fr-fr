@@ -23,7 +23,7 @@ Les limitations et fonctionnalités de migration NFS et SMB qui ne fonctionnent 
 | Description | NFS | SMB 
 
 
-| Nombre de chemins d'exportation pouvant s'exécuter simultanément | 4  a| 
+| Nombre de tâches parallèles | 4  a| 
 2
 
 

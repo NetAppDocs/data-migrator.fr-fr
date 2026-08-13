@@ -1,0 +1,8 @@
+---
+permalink: networking-requirements.html 
+redirect: data-migrator/configure-access-for-control-plane-and-worker-nodes.html 
+---
+= 
+:allow-uri-read: 
+
+

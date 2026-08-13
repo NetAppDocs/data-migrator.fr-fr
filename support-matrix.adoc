@@ -86,6 +86,11 @@ NetApp Data Migrator migre les objets et les liens sous forme de fichiers sépar
 | Description | Fonctionnalité non prise en charge 
 
 
+| Migration Active Directory croisée  a| 
+Migrations inter-domaines entre systèmes source et de destination joints à différents domaines Active Directory
+
+
+
 | Gestion des autorisations et des audits  a| 
 Liste de contrôle d'accès au système (SACL)
 

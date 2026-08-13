@@ -46,4 +46,4 @@ kubectl get pods -n datamigrator
 
 
 .Et ensuite ?
-Après avoir appris à valider la VM du plan de contrôle, vous pouvez link:access-data-migrator-ui.html["accéder à l’interface utilisateur du migreur de données NetApp"].
+Après avoir validé le plan de contrôle et le déploiement des nœuds de calcul, vous pouvez link:configure-access-for-control-plane-and-worker-nodes.html["configurer l'accès pour le plan de contrôle et les nœuds de travail"].

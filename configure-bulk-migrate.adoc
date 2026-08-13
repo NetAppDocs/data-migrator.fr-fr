@@ -60,6 +60,7 @@ NetApp Data Migrator vous empêche de sélectionner un mappage ayant une relatio
 
 Vous pouvez sélectionner différents paramètres sur la page *Options* pour personnaliser votre tâche Bulk Migrate, en fonction de vos besoins.
 
+[[inherited-permissions]]
 [cols="1,2a"]
 |===
 | Option | Description 

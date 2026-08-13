@@ -101,5 +101,5 @@ En savoir plus link:https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-
 Après avoir appris à créer le plan de contrôle et les machines virtuelles de travail, vous pouvez effectuer les opérations suivantes :
 
 * Facultativement link:validate-control-plane-vm.html["valider la machine virtuelle du plan de contrôle"]
-* link:access-data-migrator-ui.html["Accédez à l’interface utilisateur NetApp Data Migrator et connectez-vous au plan de contrôle et aux workers"]
+* link:configure-access-for-control-plane-and-worker-nodes.html["Configurer l'accès pour le plan de contrôle et les nœuds de travail"]
 

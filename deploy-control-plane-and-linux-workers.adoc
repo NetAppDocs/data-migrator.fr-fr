@@ -52,11 +52,11 @@ Répétez les étapes suivantes pour le plan de contrôle et les VHD de travail 
 [source, cli]
 ----
 az storage blob copy start \
-  --source-uri "<PROVIDED_SAS_URL>" \
-  --destination-blob "<VHD_FILE_NAME>.vhd" \
-Group 1065216673, Grouped object  --destination-container <YOUR_CONTAINER_NAME> \
-  --account-name <YOUR_STORAGE_ACCOUNT> \
-  --account-key <YOUR_STORAGE_ACCOUNT_KEY>
+ --source-uri "<PROVIDED_SAS_URL>" \
+ --destination-blob "<VHD_FILE_NAME>.vhd" \
+ --destination-container <YOUR_CONTAINER_NAME> \
+ --account-name <YOUR_STORAGE_ACCOUNT> \
+ --account-key <YOUR_STORAGE_ACCOUNT_KEY>
 ----
 . Créez une nouvelle image Azure à partir du fichier VHD copié :
 +
