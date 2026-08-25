@@ -1172,7 +1172,6 @@
   <block id="f5936f1202a484aee0b3d803aed1a5d9" category="cell">Console de gestion Isilon</block>
   <block id="641ec62f20c806175741f0723cb6af5d" category="cell">443, 8080</block>
   <block id="64fc9337a916327c78736cd1603da8ea" category="paragraph">Après avoir examiné les exigences relatives aux ports, vous pouvez <block ref="be3bcec36ca8095627c0973264f63ac3" category="inline-link-macro-rx"></block>.</block>
-  <block id="c0344b592eae88f2d48fc131e4f71cb4" category="paragraph">Examinez <block ref="132a4252d8dab891f29e77b7b5f68e5e" category="inline-link-macro-rx"></block> et le <block ref="6a37b291f715e0a715104fd841801938" category="inline-link-macro-rx"></block>.</block>
   <block id="dc7f96ee70742882467448fff2d8bd37" category="cell">Migration Active Directory croisée</block>
   <block id="6b12a23db7936b8ba200771d17ffaf7d" category="paragraph">Migrations inter-domaines entre systèmes source et de destination joints à différents domaines Active Directory</block>
   <block id="45e8b07d6e63451405a4af0faf235cac" category="inline-link-macro">configurer l'accès pour le plan de contrôle et les nœuds de travail</block>
@@ -1183,4 +1182,5 @@
   <block id="9f8e8367e5ba7abf45616124b13023c7" category="inline-link-macro">Personnalisez une tâche de migration en masse</block>
   <block id="8d98da09fae74d08452302f3adc4fa59" category="paragraph"><block ref="8d98da09fae74d08452302f3adc4fa59" category="inline-link-macro-rx"></block></block>
   <block id="3d705eb529268ebde05f92b2d147770c" category="list-text">Inclut des améliorations de performance et de stabilité pour les flux de travail de découverte, de migration et d'estampillage des autorisations pour NFS et SMB.</block>
+  <block id="8eb209726f354c640d6259f0894f5207" category="paragraph">Revoir <block ref="132a4252d8dab891f29e77b7b5f68e5e" category="inline-link-macro-rx"></block>.</block>
 </blocks>
