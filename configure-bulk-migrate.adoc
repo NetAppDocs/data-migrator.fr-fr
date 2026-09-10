@@ -4,7 +4,7 @@ permalink: configure-bulk-migrate.html
 keywords: bulk migrate, data migration, source mapping, destination mapping, export paths 
 summary: 'Utilisez la fonction de migration en masse dans NetApp Data Migrator pour transférer de grands volumes de données d"une source vers un emplacement de destination.' 
 ---
-= Effectuez la migration des données à l'aide de NetApp Data Migrator
+= Configurer la migration groupée dans NetApp Data Migrator
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/

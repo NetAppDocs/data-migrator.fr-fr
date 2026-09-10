@@ -36,7 +36,7 @@ Le tableau *Offres d'emploi* s'affiche, qui inclut les informations suivantes :
 ** *Prochaine exécution* : La prochaine heure d’exécution planifiée (le cas échéant).
 ** *Exécutions* : Le nombre de fois où la tâche a été exécutée.
 ** *Type* : Le type de tâche (Découverte, Migration ou Basculement).
-** *Statut* : L’état actuel d’une tâche peut être Actif ou Inactif. Les tâches utilisant des chemins d’exportation manuels dont le statut est invalide ou désactivé deviennent automatiquement inactives. Consultez link:manage-file-servers.html["Ajouter et gérer des serveurs de fichiers"] pour plus de détails.
+** *Statut* : L’état actuel d’une tâche peut être Actif ou Inactif. Les tâches utilisant des chemins d’exportation manuels dont le statut est invalide ou désactivé deviennent automatiquement inactives. Consultez link:manage-file-servers.html["Ajoutez et gérez des serveurs de fichiers dans NetApp Data Migrator"] pour plus de détails.
 ** *Date de mise à jour* : Horodatage de la mise à jour du job.
 +
 Les tâches utilisant des chemins d'exportation manuels ou le fichier de chemins d'exportation sont ultérieurement rechargées. Toutes les tâches précédemment exécutées et associées à un chemin désormais invalide ou désactivé deviennent automatiquement inactives.

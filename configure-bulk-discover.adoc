@@ -4,7 +4,7 @@ permalink: configure-bulk-discover.html
 keywords: bulk discover, storage inventory, export paths, data scan, migration planning 
 summary: 'Configurez la fonction Bulk Discover dans NetApp Data Migrator pour générer un aperçu de l"ensemble de votre capacité de stockage existante avant de commencer la migration de vos données.' 
 ---
-= Planifiez la migration des données dans NetApp Data Migrator à l'aide de Bulk Discover
+= Configurer la découverte en masse dans NetApp Data Migrator
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/

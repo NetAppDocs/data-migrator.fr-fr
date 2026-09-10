@@ -4,7 +4,7 @@ permalink: validate-control-plane-vm.html
 keywords: google cloud, installation, control plane, worker vm, iam roles 
 summary: 'Vous pouvez également valider le déploiement de la machine virtuelle du plan de contrôle sur Google Cloud en vérifiant l"état du service, les journaux et l"intégrité des pods.' 
 ---
-= Validez éventuellement le déploiement de la machine virtuelle du plan de contrôle pour NetApp Data Migrator
+= Validez le déploiement de la machine virtuelle du plan de contrôle pour NetApp Data Migrator
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/

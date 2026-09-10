@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: legal notices, copyright, trademarks, open source, licenses 
 summary: 'Mentions légales, droits d"auteur, marques déposées et informations sur la licence open source de NetApp Data Migrator.' 
 ---
-= Mentions légales
+= Mentions légales pour NetApp Data Migrator
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/

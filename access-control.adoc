@@ -4,7 +4,7 @@ permalink: access-control.html
 keywords: role-based access control, rbac, user permissions, app admin, project admin 
 summary: 'NetApp Data Migrator utilise le contrôle d"accès basé sur les rôles (RBAC) pour gérer les autorisations des utilisateurs, permettant aux utilisateurs App Admin d"attribuer des rôles à d"autres utilisateurs.' 
 ---
-= Gérer le contrôle d'accès pour NetApp Data Migrator
+= Rôles et autorisations de contrôle d'accès dans NetApp Data Migrator
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/

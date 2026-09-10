@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <blocks>
   <block id="4821361904f08ed800ae73ad92927d3d" category="summary">NetApp Data Migrator utilise le contrôle d'accès basé sur les rôles (RBAC) pour gérer les autorisations des utilisateurs, permettant aux utilisateurs App Admin d'attribuer des rôles à d'autres utilisateurs.</block>
-  <block id="f02b2be434e8a727287102f6a252e24c" category="doc">Gérer le contrôle d'accès pour NetApp Data Migrator</block>
   <block id="d7c622d175e7320d211daad224463513" category="paragraph">NetApp Data Migrator utilise le contrôle d'accès basé sur les rôles (RBAC) pour gérer les autorisations des utilisateurs. Le RBAC permet aux utilisateurs App Admin (administrateurs) d'attribuer l'un des trois rôles suivants à d'autres utilisateurs, garantissant ainsi un contrôle d'accès sécurisé et des opérations efficaces. Les utilisateurs App Admin accordent des autorisations aux autres utilisateurs en fonction de leurs responsabilités et de leurs besoins d'accès.</block>
   <block id="918f97579e4443ee0226f731ca1b2454" category="list-text">*Administrateur d'application* : Ce niveau d'accès permet aux utilisateurs de gérer les paramètres généraux du système, les rôles des utilisateurs et les autorisations d'accès.</block>
   <block id="0ffac7595c5d5ad698326101c205f97d" category="list-text">*Administrateur de projet* : Ce niveau d'accès permet aux utilisateurs de gérer des projets de migration spécifiques, y compris la configuration et l'exécution des tâches.</block>
@@ -82,7 +81,6 @@
   <block id="cc5fcd3fba3014c23240ac1c1497d8b7" category="paragraph">Consultez le rapport pour vérifier si le basculement a réussi et si toutes les données ont bien migré de la source vers la destination.</block>
   <block id="e15884a19074f86e7c09ab35a649f46a" category="paragraph">Le statut passe à *Terminé*.</block>
   <block id="c7c7190135e9f9b9ece90813a338db20" category="summary">Configurez la fonction Bulk Discover dans NetApp Data Migrator pour générer un aperçu de l'ensemble de votre capacité de stockage existante avant de commencer la migration de vos données.</block>
-  <block id="237c9334ef000476a7394e5432d15caa" category="doc">Planifiez la migration des données dans NetApp Data Migrator à l'aide de Bulk Discover</block>
   <block id="5fe4d49f2bb62d43bc8130b371624a60" category="paragraph">Configurez la fonction « Exploration en masse » de NetApp Data Migrator pour obtenir rapidement un aperçu complet de votre capacité de stockage existante avant de commencer la migration de vos données. Une bonne compréhension de vos fichiers stockés et de la structure de votre système peut aider à rationaliser le processus de migration des données.</block>
   <block id="996e73c7461d886afe19727bc21490cf" category="list-text">Sélectionnez *Serveurs de stockage* &gt; *Serveurs de fichiers* pour afficher la liste des serveurs de fichiers disponibles.</block>
   <block id="8eef17af229d9974a423c51577657da9" category="list-text">Sélectionnez le nom du serveur sur lequel vous souhaitez effectuer une découverte en masse, puis sélectionnez *Bulk Discover*.</block>
@@ -97,7 +95,6 @@
   <block id="f5f9bbbb5b9949b693fcb9afc02c0bf1" category="paragraph">Les chemins d'exportation devenus inaccessibles sont désactivés et ne peuvent être utilisés lors de la découverte. Par exemple, les chemins d'exportation supprimés ou n'apparaissant plus dans les résultats de la commande <block ref="55fb64f15dd3d0c53de3a4d095218569" prefix=" " category="inline-code"></block> pour NFS, ou encore les chemins non renvoyés lors de l'énumération des partages SMB, sont désactivés.</block>
   <block id="d9ef6c926d575b1081ad9bd10cfb8a20" category="list-text">Sélectionnez *Soumettre* et un message de notification s’affiche confirmant que la *Bulk Discover Job* a été créée. Sélectionnez le lien *View Job Listing* dans ce message pour afficher la page *Job Config List*, où votre nouvelle tâche est répertoriée dans le tableau *Job Listings*.</block>
   <block id="52651e9e259665a27e120a368f26f728" category="summary">Utilisez la fonction de migration en masse dans NetApp Data Migrator pour transférer de grands volumes de données d'une source vers un emplacement de destination.</block>
-  <block id="82a11be88932c60c6c29c06b4c233449" category="doc">Effectuez la migration des données à l'aide de NetApp Data Migrator</block>
   <block id="505619737019b89dd9d4c16b706d8f62" category="paragraph">Utilisez les fonctionnalités de migration en masse de NetApp Data Migrator pour transférer de grands volumes de données d'une source vers un emplacement de destination.</block>
   <block id="a2d8cf659766e21d3e11e4f9a79d56c0" category="section-title">Étape 1 : Configurer la migration en masse dans NetApp Data Migrator</block>
   <block id="b2e1f3e6312c7b8aad6ed527c694618d" category="paragraph">Vous devez définir les serveurs pour la migration en masse avant de pouvoir utiliser les fonctionnalités de Bulk Migrate.</block>
@@ -680,7 +677,6 @@
   <block id="d211e5012fe610811b996152df247e6a" category="list-text">*Prochaine exécution* : La prochaine heure d’exécution planifiée (le cas échéant).</block>
   <block id="f275311b9080a619b83ce5490ae50392" category="list-text">*Exécutions* : Le nombre de fois où la tâche a été exécutée.</block>
   <block id="59a8dd452a829f2516fecf824e882da1" category="list-text">*Type* : Le type de tâche (Découverte, Migration ou Basculement).</block>
-  <block id="57578fa471857bb13e307e088ca9d179" category="list-text">*Statut* : L’état actuel d’une tâche peut être Actif ou Inactif. Les tâches utilisant des chemins d’exportation manuels dont le statut est invalide ou désactivé deviennent automatiquement inactives. Consultez <block ref="ae773d97768ced1963187e2ee61ebb05" category="inline-link-macro-rx"></block> pour plus de détails.</block>
   <block id="de14b7f5bd8601d16bfb30193a03bf45" category="list-text">*Date de mise à jour* : Horodatage de la mise à jour du job.</block>
   <block id="5509a44201941ec9a71cfef8981f936d" category="paragraph">Les tâches utilisant des chemins d'exportation manuels ou le fichier de chemins d'exportation sont ultérieurement rechargées. Toutes les tâches précédemment exécutées et associées à un chemin désormais invalide ou désactivé deviennent automatiquement inactives.</block>
   <block id="998e5d7021559bae26394870386865fd" category="list-text">Sélectionnez *Filtres* pour trier les tâches dans le tableau Jobs Listings. Vous pouvez choisir une combinaison de filtres selon les options suivantes :</block>
@@ -1065,7 +1061,6 @@
   <block id="77f9e995a0fc8365d6925b92fccb9e35" category="list-text">En cas d'échec de la mise à niveau, le système revient automatiquement à la version précédente et l'interface utilisateur affiche l'état de la mise à niveau comme *Failed*.</block>
   <block id="2278e2cc17d70372f4c96b75c5e965fb" category="paragraph">Veuillez consulter les journaux Ansible, puis contacter le support NetApp et joindre les journaux Ansible à votre communication.</block>
   <block id="51709d52335098615f6504e2daf27594" category="summary">Vous pouvez également valider le déploiement de la machine virtuelle du plan de contrôle sur Google Cloud en vérifiant l'état du service, les journaux et l'intégrité des pods.</block>
-  <block id="7bc002d3a69fd18563cd5eaa25020fa1" category="doc">Validez éventuellement le déploiement de la machine virtuelle du plan de contrôle pour NetApp Data Migrator</block>
   <block id="a3ef8d550203154b5a288b2f0303fb14" category="paragraph">Validez éventuellement le déploiement de la machine virtuelle du plan de contrôle pour NetApp Data Migrator.</block>
   <block id="eb9cae3a6ab37870fcaa1116612194a9" category="list-text">Utilisez SSH pour vous connecter à votre serveur de plan de contrôle :</block>
   <block id="11eb787b328a77491d92a2ce4497cf32" category="list-text">Vérifiez l'état du service de démarrage et les journaux :</block>
@@ -1183,4 +1178,11 @@
   <block id="8d98da09fae74d08452302f3adc4fa59" category="paragraph"><block ref="8d98da09fae74d08452302f3adc4fa59" category="inline-link-macro-rx"></block></block>
   <block id="3d705eb529268ebde05f92b2d147770c" category="list-text">Inclut des améliorations de performance et de stabilité pour les flux de travail de découverte, de migration et d'estampillage des autorisations pour NFS et SMB.</block>
   <block id="8eb209726f354c640d6259f0894f5207" category="paragraph">Revoir <block ref="132a4252d8dab891f29e77b7b5f68e5e" category="inline-link-macro-rx"></block>.</block>
+  <block id="50d8d65b5f5100cc0dc6f3b9fb9682d7" category="doc">Rôles et autorisations de contrôle d'accès dans NetApp Data Migrator</block>
+  <block id="f87fbac304f6e9892e399af4d13cefaf" category="doc">Configurer la découverte en masse dans NetApp Data Migrator</block>
+  <block id="117de3e9c4c9e371558e6e2e617f6a16" category="doc">Configurer la migration groupée dans NetApp Data Migrator</block>
+  <block id="03258218662d0c30e866496934d04581" category="doc">Mentions légales pour NetApp Data Migrator</block>
+  <block id="18bf1ddcaa9ee321800b536f0aa349e7" category="doc">Ajoutez et gérez des serveurs de fichiers dans NetApp Data Migrator</block>
+  <block id="e8fb6461729f7558b0641cc134558523" category="list-text">*Statut* : L’état actuel d’une tâche peut être Actif ou Inactif. Les tâches utilisant des chemins d’exportation manuels dont le statut est invalide ou désactivé deviennent automatiquement inactives. Consultez <block ref="bf725029de6ffb3b8d7c54c9d34392e0" category="inline-link-macro-rx"></block> pour plus de détails.</block>
+  <block id="d4ce35c5ff23098c850ff6baa2149d11" category="doc">Validez le déploiement de la machine virtuelle du plan de contrôle pour NetApp Data Migrator</block>
 </blocks>

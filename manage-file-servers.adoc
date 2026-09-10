@@ -4,7 +4,7 @@ permalink: manage-file-servers.html
 keywords: file servers, nfs, smb, worker association, export paths 
 summary: Utilisez NetApp Data Migrator pour ajouter, configurer et modifier les serveurs de fichiers qui utilisent les protocoles NFS ou SMB. 
 ---
-= Ajouter et gérer des serveurs de fichiers
+= Ajoutez et gérez des serveurs de fichiers dans NetApp Data Migrator
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/
